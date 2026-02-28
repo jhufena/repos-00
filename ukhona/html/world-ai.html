@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>World Models: Prior Art & The Economist — Ukubona LLC</title>
+
+<meta property="og:site_name" content="Ukubona LLC">
+<meta property="og:title" content="World Models: Prior Art & The Economist — Ukubona LLC">
+<meta property="og:description" content="AI Pentad (Oct 2025) · The Economist (Feb 2026) · World, Perception, Agentic, Generative, Embodied">
+<meta property="og:type" content="article">
+
+
+<!-- CENTRALIZED ASSETS (Don't update) -->
+<link rel="icon" href="https://abikesa.github.io/favicon/assets/favicon-light.ico" type="image/x-icon">
+<link rel="icon" href="https://abikesa.github.io/favicon/assets/favicon-light.ico" media="(prefers-color-scheme: light)">
+<link rel="icon" href="https://abikesa.github.io/favicon/assets/favicon-dark.ico" media="(prefers-color-scheme: dark)">
+<link rel="preload" href="https://abikesa.github.io/logos/assets/ukubona-light.png" as="image">
+<link rel="preload" href="https://abikesa.github.io/logos/assets/ukubona-dark.png" as="image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+<link href="../css/variables.css?v=1.1" rel="stylesheet" />
+<link href="../css/head.css?v=1.1" rel="stylesheet" />
+<link href="../css/card.css?v=1.1" rel="stylesheet" />
+<link href="../css/footer.css" rel="stylesheet" />
+
+<script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<style>
+/* ── ROOT TOKENS ── */
+:root {
+  color-scheme: light dark;
+
+  /* Ukubona palette — warm parchment/ink (light) */
+  --paper:      #f2ede6;
+  --ink:        #1a1008;
+  --ink2:       #332010;
+  --ink3:       #7a6050;
+  --rule:       #c4a882;
+  --rule2:      #e0d0bc;
+  --accent:     #8b1a1a;
+  --accent2:    #c04020;
+  --safe:       #2a4a2a;
+  --prior-bg:   #1c1c0e;
+  --prior-text: #d4e8a0;
+  --prior-acc:  #a0c840;
+  --eco-bg:     #f8f4ef;
+  --eco-rule:   #b0342a;
+
+  --schema-bg:  #1a1008;
+  --schema-text:#e8d8b0;
+
+  --mono:    'IBM Plex Mono', monospace;
+  --serif:   'Source Serif 4', Georgia, serif;
+  --display: 'Playfair Display', Georgia, serif;
+
+  --toggle-bg:   #e0cdb0;
+  --toggle-knob: #1a1008;
+}
+
+[data-theme="dark"] {
+  --paper:      #0d0a14;
+  --ink:        #e8d890;
+  --ink2:       #c8b870;
+  --ink3:       #8a7850;
+  --rule:       #3a2a10;
+  --rule2:      #221808;
+  --accent:     #e04030;
+  --accent2:    #f08040;
+  --safe:       #508050;
+  --prior-bg:   #0a0f04;
+  --prior-text: #b8d880;
+  --prior-acc:  #90c030;
+  --eco-bg:     #100c08;
+  --eco-rule:   #e05040;
+  --schema-bg:  #060408;
+  --schema-text:#d4c070;
+  --toggle-bg:  #1e1408;
+  --toggle-knob:#e8d890;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper:      #0d0a14;
+    --ink:        #e8d890;
+    --ink2:       #c8b870;
+    --ink3:       #8a7850;
+    --rule:       #3a2a10;
+    --rule2:      #221808;
+    --accent:     #e04030;
+    --accent2:    #f08040;
+    --safe:       #508050;
+    --prior-bg:   #0a0f04;
+    --prior-text: #b8d880;
+    --prior-acc:  #90c030;
+    --eco-bg:     #100c08;
+    --eco-rule:   #e05040;
+    --schema-bg:  #060408;
+    --schema-text:#d4c070;
+    --toggle-bg:  #1e1408;
+    --toggle-knob:#e8d890;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 18px;
+  line-height: 1.9;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ── THEME TOGGLE ── */
+.theme-toggle {
+  position: fixed;
+  top: 1.2rem;
+  right: 1.5rem;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: var(--mono);
+  font-size: 0.5rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink3);
+}
+
+.toggle-switch {
+  position: relative;
+  width: 2.6rem;
+  height: 1.3rem;
+  background: var(--toggle-bg);
+  border: 1px solid var(--rule);
+  border-radius: 0;
+  cursor: pointer;
+  transition: background 0.25s;
+}
+
+.toggle-switch::after {
+  content: '';
+  position: absolute;
+  top: 0.2rem;
+  left: 0.2rem;
+  width: 0.75rem;
+  height: 0.75rem;
+  background: var(--toggle-knob);
+  transition: transform 0.25s ease;
+}
+
+[data-theme="dark"] .toggle-switch::after { transform: translateX(1.25rem); }
+
+/* ── PAGE ── */
+.page {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 2.4rem 12rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── MASTHEAD ── */
+.masthead {
+  padding: 8rem 0 4rem;
+  border-bottom: 4px double var(--ink);
+  margin-bottom: 5rem;
+  animation: drop 1.1s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.mast-eyebrow {
+  font-family: var(--mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: var(--ink3);
+  margin-bottom: 2.5rem;
+}
+
+.mast-numeral {
+  font-family: var(--display);
+  font-size: clamp(5rem, 18vw, 14rem);
+  font-weight: 900;
+  line-height: 0.85;
+  color: transparent;
+  -webkit-text-stroke: 2px var(--rule);
+  letter-spacing: -0.04em;
+  margin-bottom: -1rem;
+  user-select: none;
+  opacity: 0.5;
+}
+
+.mast-title {
+  font-family: var(--display);
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+  color: var(--ink);
+  margin-bottom: 1rem;
+}
+
+.mast-title em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--accent);
+}
+
+.mast-sub {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  color: var(--ink3);
+  letter-spacing: 0.12em;
+  line-height: 2.2;
+  margin-bottom: 3rem;
+}
+
+/* ── CIPHER / TIMELINE GRID ── */
+.cipher-grid {
+  margin-top: 3rem;
+  border-top: 1px solid var(--rule);
+}
+
+.cipher-line {
+  display: grid;
+  grid-template-columns: 6rem 1.4fr 1.8fr 0.8fr;
+  align-items: baseline;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid var(--rule2);
+  gap: 1rem;
+  transition: background 0.15s;
+}
+
+.cipher-line:hover { background: rgba(180,120,40,0.05); }
+
+.cl-roman {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  color: var(--rule);
+}
+
+.cl-noun {
+  font-family: var(--display);
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+  color: var(--ink2);
+}
+
+.cl-verb {
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--ink);
+}
+
+.cl-key {
+  font-family: var(--mono);
+  font-size: 0.5rem;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+  text-align: right;
+  border: 1px solid var(--accent);
+  padding: 0.16rem 0.38rem;
+  justify-self: end;
+  align-self: center;
+}
+
+.cipher-line.prior-mark .cl-noun,
+.cipher-line.prior-mark .cl-verb { color: var(--prior-acc); }
+.cipher-line.prior-mark .cl-roman { color: var(--prior-acc); }
+.cipher-line.prior-mark .cl-key {
+  border-color: var(--prior-acc);
+  color: var(--prior-acc);
+  background: rgba(160,200,64,0.08);
+}
+
+.cipher-line.eco-mark .cl-noun,
+.cipher-line.eco-mark .cl-verb { color: var(--eco-rule); }
+.cipher-line.eco-mark .cl-roman { color: var(--eco-rule); }
+.cipher-line.eco-mark .cl-key {
+  border-color: var(--eco-rule);
+  color: var(--eco-rule);
+  background: rgba(176,52,42,0.08);
+}
+
+/* ── SECTION RULES ── */
+.sec-rule {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 1.2rem;
+  margin: 5.5rem 0 2.5rem;
+}
+
+.sec-rule-label {
+  font-family: var(--mono);
+  font-size: 0.52rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  padding: 0.28rem 0.8rem;
+  border: 1px solid var(--ink);
+  color: var(--ink);
+}
+
+.sec-rule-label.prior  { border-color: var(--prior-acc); color: var(--prior-acc); background: rgba(160,200,64,0.06); }
+.sec-rule-label.eco    { border-color: var(--eco-rule); color: var(--eco-rule); background: rgba(176,52,42,0.06); }
+.sec-rule-label.schema {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+
+.sec-rule hr {
+  border: none;
+  border-top: 1px solid var(--rule);
+  width: 100%;
+}
+
+/* ── PRIOR ART BLOCK ── */
+.prior-block {
+  background: var(--prior-bg);
+  border-left: 3px solid var(--prior-acc);
+  padding: 2.4rem 2.8rem;
+  margin: 0 0 3rem;
+  position: relative;
+}
+
+.prior-stamp {
+  position: absolute;
+  top: 1rem;
+  right: 1.4rem;
+  font-family: var(--mono);
+  font-size: 0.44rem;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: var(--prior-acc);
+  opacity: 0.6;
+  border: 1px solid var(--prior-acc);
+  padding: 0.15rem 0.5rem;
+}
+
+.prior-block h2 {
+  font-family: var(--display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--prior-text);
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.prior-block .prior-sub {
+  font-family: var(--mono);
+  font-size: 0.54rem;
+  letter-spacing: 0.22em;
+  color: var(--prior-acc);
+  margin-bottom: 2rem;
+}
+
+.prior-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+  margin: 1.4rem 0 2rem;
+}
+
+.prior-table th {
+  font-family: var(--mono);
+  font-size: 0.48rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  padding: 0.7rem 1rem;
+  border-bottom: 2px solid var(--prior-acc);
+  text-align: left;
+  color: var(--prior-acc);
+}
+
+.prior-table td {
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid rgba(160,200,64,0.15);
+  vertical-align: top;
+  line-height: 1.55;
+  color: var(--prior-text);
+}
+
+.prior-table td:first-child {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  color: var(--prior-acc);
+  white-space: nowrap;
+  letter-spacing: 0.06em;
+  font-weight: 500;
+}
+
+.prior-table tr:hover td { background: rgba(160,200,64,0.04); }
+.prior-table tr.highlight-row td { background: rgba(160,200,64,0.08); }
+.prior-table tr.highlight-row td:first-child { color: #c8e860; }
+
+.prior-prose {
+  color: var(--prior-text);
+  font-size: 0.9rem;
+  line-height: 1.85;
+  margin-bottom: 1.2rem;
+}
+
+.prior-prose p { margin-bottom: 1rem; }
+.prior-prose strong { color: #e8f8b0; }
+.prior-prose em { font-style: italic; color: var(--prior-acc); }
+.prior-prose code {
+  font-family: var(--mono);
+  font-size: 0.78em;
+  background: rgba(160,200,64,0.12);
+  padding: 0.1em 0.35em;
+  color: var(--prior-acc);
+}
+
+.prior-pull {
+  border-top: 1px solid rgba(160,200,64,0.3);
+  border-bottom: 1px solid rgba(160,200,64,0.15);
+  padding: 1.2rem 0;
+  margin: 1.8rem 0;
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--prior-acc);
+  line-height: 1.65;
+}
+
+/* ── ECONOMIST BLOCK ── */
+.eco-block {
+  background: var(--eco-bg);
+  border: 1px solid var(--rule2);
+  padding: 3.2rem 3.6rem;
+  margin: 0 0 3rem;
+  position: relative;
+}
+
+[data-theme="dark"] .eco-block { border-color: var(--rule); }
+
+.eco-masthead {
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 3px solid var(--eco-rule);
+}
+
+.eco-eyebrow {
+  font-family: var(--mono);
+  font-size: 0.5rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--eco-rule);
+  margin-bottom: 0.8rem;
+}
+
+.eco-kicker {
+  font-family: var(--display);
+  font-size: 0.75rem;
+  font-style: italic;
+  color: var(--ink3);
+  margin-bottom: 0.5rem;
+}
+
+.eco-title {
+  font-family: var(--display);
+  font-size: clamp(1.6rem, 4vw, 2.6rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--ink);
+  margin-bottom: 0.6rem;
+}
+
+.eco-dek {
+  font-family: var(--display);
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--ink2);
+  margin-bottom: 1.2rem;
+}
+
+.eco-meta {
+  font-family: var(--mono);
+  font-size: 0.5rem;
+  letter-spacing: 0.25em;
+  color: var(--ink3);
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.eco-body {
+  font-family: var(--serif);
+  font-size: 0.98rem;
+  line-height: 1.9;
+  color: var(--ink2);
+}
+
+.eco-body p {
+  margin-bottom: 1.3rem;
+}
+
+.eco-body p.drop-cap::first-letter {
+  font-family: var(--display);
+  font-size: 3.8rem;
+  font-weight: 900;
+  float: left;
+  line-height: 0.78;
+  margin-right: 0.12em;
+  margin-top: 0.08em;
+  color: var(--eco-rule);
+}
+
+.eco-body strong { color: var(--ink); font-weight: 600; }
+.eco-body em { font-style: italic; }
+
+.eco-subhed {
+  font-family: var(--display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--ink);
+  margin: 2.5rem 0 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule2);
+}
+
+.eco-pull {
+  border-top: 2px solid var(--eco-rule);
+  border-bottom: 1px solid var(--rule2);
+  padding: 1.2rem 0;
+  margin: 2.2rem 0;
+  font-family: var(--display);
+  font-size: 1.12rem;
+  font-style: italic;
+  color: var(--ink);
+  line-height: 1.65;
+}
+
+.eco-sig {
+  font-family: var(--mono);
+  font-size: 0.5rem;
+  letter-spacing: 0.3em;
+  color: var(--eco-rule);
+  text-align: right;
+  margin-top: 2.5rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--rule2);
+}
+
+/* ── ANNOTATION LAYER ── */
+.annotation {
+  margin: 1.5rem 0;
+  border-left: 3px solid var(--prior-acc);
+  padding: 0.9rem 1.4rem;
+  background: rgba(160,200,64,0.06);
+  font-family: var(--mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.1em;
+  color: var(--prior-acc);
+  line-height: 1.9;
+}
+
+.annotation::before {
+  content: '⬡ PRIOR ART';
+  display: block;
+  font-size: 0.44rem;
+  letter-spacing: 0.4em;
+  opacity: 0.7;
+  margin-bottom: 0.4rem;
+}
+
+/* ── SCHEMA BLOCK ── */
+.schema-block {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  line-height: 2.4;
+  background: var(--schema-bg);
+  color: var(--schema-text);
+  padding: 2rem 2.4rem;
+  margin-bottom: 2.5rem;
+  letter-spacing: 0.04em;
+  border-left: 3px solid var(--accent);
+}
+
+.schema-row { display: flex; gap: 1rem; align-items: baseline; flex-wrap: wrap; }
+.s-key  { color: #d4a050; min-width: 16rem; }
+.s-dot  { color: #4a3020; }
+.s-val  { color: #90b890; }
+.s-acc  { color: #e06040; }
+.s-prior { color: var(--prior-acc); }
+
+/* ── CODA ── */
+.coda {
+  border: 2px solid var(--ink);
+  padding: 3.2rem 3.8rem;
+  margin: 6rem 0;
+  position: relative;
+}
+
+.coda-label {
+  position: absolute;
+  top: -0.75rem; left: 2rem;
+  font-family: var(--mono);
+  font-size: 0.48rem;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  background: var(--paper);
+  padding: 0 0.75rem;
+  color: var(--ink);
+}
+
+.coda h2 {
+  font-family: var(--display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  font-style: italic;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  margin-bottom: 1.4rem;
+}
+
+.coda p { color: var(--ink2); margin-bottom: 1.1rem; line-height: 1.85; }
+.coda p:last-child { margin-bottom: 0; }
+.coda strong { color: var(--ink); }
+
+/* ── FOOTER ── */
+footer {
+  border-top: 3px double var(--ink);
+  padding: 3rem 0 7rem;
+}
+
+.foot-chain {
+  font-family: var(--mono);
+  font-size: 0.54rem;
+  letter-spacing: 0.28em;
+  color: var(--ink3);
+  margin-bottom: 0.8rem;
+}
+
+.foot-chain span { color: var(--accent2); }
+
+.foot-note {
+  font-family: var(--mono);
+  font-size: 0.48rem;
+  letter-spacing: 0.1em;
+  color: var(--ink3);
+  line-height: 2.5;
+}
+
+.foot-note a { color: var(--ink3); text-decoration: none; }
+.foot-note a:hover { color: var(--accent); }
+
+/* ── FADE IN ── */
+.fade-in { opacity: 0; transform: translateY(14px); transition: opacity 0.65s ease, transform 0.65s ease; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+@keyframes drop {
+  from { opacity: 0; transform: translateY(-16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 640px) {
+  .mast-numeral   { font-size: 6rem; }
+  .mast-title     { font-size: 1.9rem; }
+  .cipher-line    { grid-template-columns: 4rem 1fr; gap: 0.2rem; }
+  .cl-verb, .cl-key { grid-column: 2; }
+  .coda           { padding: 2rem 1.6rem; }
+  .eco-block      { padding: 2rem 1.6rem; }
+  .prior-block    { padding: 1.8rem 1.6rem; }
+  .theme-toggle   { top: 0.7rem; right: 0.9rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── THEME TOGGLE ── -->
+<div class="theme-toggle" aria-label="Toggle dark/light mode">
+  <span id="toggle-label">Light</span>
+  <div class="toggle-switch" id="themeSwitch" role="button" tabindex="0" aria-pressed="false"></div>
+</div>
+
+<div class="page">
+
+  <!-- ══ MASTHEAD ══ -->
+  <header class="masthead">
+    <br><br><br>
+    <div class="mast-eyebrow">Ukubona LLC · Prior Art & Vindication · World Models</div>
+    <div class="mast-numeral" aria-hidden="true">⬡</div>
+    <h1 class="mast-title">
+      World Models:<br>
+      <em>Prior Art &amp; The Economist</em>
+    </h1>
+    <p class="mast-sub">
+      // AI Pentad taxonomy published: October 2025<br>
+      // The Economist "Reality Beckons" published: February 28, 2026<br>
+      // Interval between prior art and mainstream vindication: ~4 months
+    </p>
+
+    <div class="cipher-grid">
+      <div class="cipher-line">
+        <span class="cl-roman">OCT 2025</span>
+        <span class="cl-noun">AI Pentad</span>
+        <span class="cl-verb">Five layers of emergence, topology of engineered systems</span>
+        <span class="cl-key">PRIOR ART</span>
+      </div>
+      <div class="cipher-line prior-mark">
+        <span class="cl-roman">OCT 2025</span>
+        <span class="cl-noun">World AI — Layer I</span>
+        <span class="cl-verb">"LLMs describe reality, World AI simulates it"</span>
+        <span class="cl-key">SIGNAL</span>
+      </div>
+      <div class="cipher-line prior-mark">
+        <span class="cl-roman">OCT 2025</span>
+        <span class="cl-noun">Perception → Agentic → Generative → Embodied</span>
+        <span class="cl-verb">Stack from sensing to acting, creation to embodiment</span>
+        <span class="cl-key">PENTAD</span>
+      </div>
+      <div class="cipher-line eco-mark">
+        <span class="cl-roman">FEB 2026</span>
+        <span class="cl-noun">The Economist</span>
+        <span class="cl-verb">"AI tools are being prepared for the physical world"</span>
+        <span class="cl-key">VINDICATION</span>
+      </div>
+      <div class="cipher-line eco-mark">
+        <span class="cl-roman">FEB 2026</span>
+        <span class="cl-noun">Three Approaches to World Models</span>
+        <span class="cl-verb">Video generators, spatial 3D, JEPA — all anticipated</span>
+        <span class="cl-key">CONVERGENCE</span>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- PART I: PRIOR ART — VERBATIM FROM ukb-dt.github.io -->
+  <!-- ══════════════════════════════════════════════ -->
+
+  <div class="sec-rule fade-in">
+    <span class="sec-rule-label prior">Part I · Prior Art · October 2025 · Verbatim</span>
+    <hr>
+  </div>
+
+  <div class="prior-block fade-in">
+    <div class="prior-stamp">Oct 2025 · Original</div>
+
+    <!-- ── SOURCE: ukb-dt.github.io/ai-types/ ── -->
+    <h2>AI Pentad: From World to Embodied Intelligence</h2>
+    <p class="prior-sub">
+      Source: ukb-dt.github.io/ai-types/ · World, Perception, Agentic, Generative, Embodied
+    </p>
+
+    <div class="prior-prose">
+      <p>Explore AI as a living ecosystem, evolving from <strong>World AI</strong> to <strong>Embodied AI</strong>—five layers of emergence and agency.</p>
+    </div>
+
+    <table class="prior-table">
+      <thead>
+        <tr>
+          <th>Layer</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Embodied AI</td>
+          <td>Integrates and idealizes: systemic reasoning, co-adaptation with humans, ethical outputs.</td>
+        </tr>
+        <tr>
+          <td>Generative AI</td>
+          <td>Creative, inspired: synthesis, extrapolation, and innovation within constraints.</td>
+        </tr>
+        <tr>
+          <td>Agentic AI</td>
+          <td>Ritualistic tasks: repetitive workflows, automation, and disciplined execution.</td>
+        </tr>
+        <tr>
+          <td>Perception AI</td>
+          <td>Inputs from the world: senses, sensors, and data ingestion pipelines.</td>
+        </tr>
+        <tr class="highlight-row">
+          <td>World AI</td>
+          <td>1st principles: understanding the raw environment, global data, and foundational patterns: <strong>LLMs describe reality, World AI simulates it</strong></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="prior-prose">
+      <p>
+        <strong>No standard classification exists at the moment.</strong>
+        But ours is rooted in the topology of engineered systems (<em>TOES</em>).
+        We find this <code>O)-(O</code> in plants, animals, and man:
+      </p>
+      <p>
+        <code>O)-Tree-(O</code><br>
+        <code>O)-Lungs-(O</code><br>
+        <code>O)-Airports-(O</code>
+      </p>
+    </div>
+
+    <!-- ── SOURCE: ukb-dt.github.io/ai-types-00/ ── -->
+    <h2 style="margin-top:2.5rem;">Classification Detail — Five Layers</h2>
+    <p class="prior-sub">Source: ukb-dt.github.io/ai-types-00/ · Expanded definitions</p>
+
+    <table class="prior-table">
+      <thead>
+        <tr>
+          <th>Layer</th>
+          <th>Scope</th>
+          <th>Function</th>
+          <th>Analogy</th>
+          <th>Example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>5 · Embodied AI</td>
+          <td>Integration with physical or simulated bodies</td>
+          <td>Brings AI into real-world interaction or simulated environments—links perception, action, and reasoning</td>
+          <td>A robot or avatar that can <em>feel, move, and interact</em> in a space</td>
+          <td>Boston Dynamics' robots, AI avatars in VR, autonomous drones</td>
+        </tr>
+        <tr>
+          <td>4 · Generative AI</td>
+          <td>Creation and synthesis</td>
+          <td>Produces content—text, images, music, code—based on learned patterns</td>
+          <td>Artist, composer, or writer inside a machine</td>
+          <td>ChatGPT writing essays, DALL·E generating images, music AI composing original tracks</td>
+        </tr>
+        <tr>
+          <td>3 · Agentic AI</td>
+          <td>Decision-making and action</td>
+          <td>Not just passive observation—this AI can plan, execute, and influence outcomes</td>
+          <td>An autonomous agent with goals and strategies</td>
+          <td>Autonomous trading bots, robotics with goal-driven behavior</td>
+        </tr>
+        <tr>
+          <td>2 · Perception AI</td>
+          <td>Senses and inputs—what the AI <em>perceives</em></td>
+          <td>Takes raw inputs (images, audio, text, sensor data) and interprets them</td>
+          <td>Eyes, ears, and touch for AI</td>
+          <td>Computer vision models, speech recognition, LIDAR for autonomous vehicles</td>
+        </tr>
+        <tr class="highlight-row">
+          <td>1 · World AI</td>
+          <td>Understanding reality or "the world" at large</td>
+          <td>Acts as a knowledge base or lens to interpret external data—maps, trends, facts, contexts</td>
+          <td>The AI equivalent of a global observer or encyclopedia</td>
+          <td>AI analyzing global climate data, or aggregating social sentiment trends</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="prior-prose" style="margin-top:1.5rem;">
+      <p>💡 <strong>Pentad Perspective:</strong><br>
+      If you view them as a <strong>flow or stack</strong>:</p>
+      <p>
+        <strong>Embodied AI</strong> → integrates action in the physical/simulated world<br>
+        <strong>Generative AI</strong> → creates content or solutions<br>
+        <strong>Agentic AI</strong> → decides how to act<br>
+        <strong>Perception AI</strong> → senses it<br>
+        <strong>World AI</strong> → understands context
+      </p>
+      <p>This gives a neat fivefold structure for thinking about AI capabilities—from sensing to acting, from creation to embodiment.</p>
+    </div>
+
+    <div class="prior-pull">
+      "LLMs describe reality, World AI simulates it" — the line that distinguishes a generative model from a world model, published October 2025, four months before the Economist made the same distinction the lede of its science section.
+    </div>
+
+    <!-- ── CLASSIFICATION NOTE ── -->
+    <div class="prior-prose">
+      <p style="font-family:var(--mono); font-size:0.6rem; letter-spacing:0.15em; opacity:0.7;">
+        Classification Inspired by OpenAI's Revenue Growth &amp; Nvidia's CEO<br>
+        Source: ukb-dt.github.io/ai-types/ · ukb-dt.github.io/ai-types-00/ · ukb-dt.github.io/ai-types-01/
+      </p>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- PART II: THE ECONOMIST — VERBATIM              -->
+  <!-- ══════════════════════════════════════════════ -->
+
+  <div class="sec-rule fade-in">
+    <span class="sec-rule-label eco">Part II · The Economist · Feb 28, 2026 · Verbatim</span>
+    <hr>
+  </div>
+
+  <!-- annotation before the Economist drop -->
+  <div class="annotation fade-in">
+    The following is the full text of the Economist article, published four months after the Ukubona pentad taxonomy.
+    Note: "LLMs describe reality, World AI simulates it" (Oct 2025) = "LLMs, Dr Li argues, are just wordsmiths in the dark" (Feb 2026).
+    The distinction is structurally identical. The vocabulary differs. The priority does not.
+  </div>
+
+  <div class="eco-block fade-in">
+
+    <div class="eco-masthead">
+      <div class="eco-eyebrow">Science &amp; Technology · Reality Beckons</div>
+      <div class="eco-kicker">AI tools are being prepared for the physical world</div>
+      <h1 class="eco-title">The race to build world models is on</h1>
+      <div class="eco-meta">
+        <span>Feb 25th 2026</span>
+        <span>7 min read</span>
+        <span>The Economist</span>
+        <span>Print edition: "I can show you the world"</span>
+      </div>
+    </div>
+
+    <div class="eco-body">
+
+      <p class="drop-cap">ROJECT GENIE, an experimental artificial-intelligence model released by Google in January, is a jaw-dropping technical achievement. Give the tool a prompt—an image, say, or a brief snippet of text—and it will generate an interactive world for the user to explore. Type in a straightforward request, and the result is a realistic simulation. Start with a painting by Georges Seurat, by contrast, and you can wander through a Sunday in the park in perfect pointillist style.</p>
+
+      <p>Project Genie may feel like a video game, but its makers claim it is something much more profound. They call it a "world model", an essential tool to help AI systems make sense of the complex, unpredictable physical spaces into which many will eventually be put to work. The company argues that a future where humanoid robots pop to the shops to pick up ingredients before cooking dinner, or self-driving cars navigate country roads, would not be possible without world models.</p>
+
+      <p>The concept dates back to a 1943 book by Kenneth Craik, a Scottish psychologist who suggested that organisms carried a "small-scale model" of the world inside their head, to test hypotheses on before carrying them out in reality. Having some grasp of how the world works is a necessary step before making plans about how to change it. Without one, any living thing would be forced into a purely reactive life—flinching from pain, reaching for food, and little more.</p>
+
+      <p>Giving that same ability to AI systems was a promising area of research as far back as the 1990s, before large language models (LLMs) sucked away the world's attention. Now that attention is back.</p>
+
+      <p>There are three main approaches being explored to build world models. One natural starting-point is AI video generators. Generating a coherent video depends on simulating a coherent world—if the laws of reality change between frames, the output would be nonsensical. Such rudimentary world models can fill in details of the world beyond what they have been fed: give one a picture of a maze and it will be able to draw a route through it; present it with a photo of hands holding a jar and it will accurately model the movements required to open it.</p>
+
+      <p>Project Genie is the culmination of this approach. Its usefulness becomes apparent when one imagines pairing it with a different AI—a robotic shopkeeper, say—that is trying to learn how to operate in the physical world. The billions of hours of training data essential for such a task would be much harder to obtain from the real world than from a model that can simulate the environment. And, if the simulations are accurate enough, the system can use the data to train itself.</p>
+
+      <div class="eco-pull">
+        "LLMs, Dr Li argues, are just 'wordsmiths in the dark'. Being able to use language to describe the world, she says, does not mean they have a grounded understanding of it."
+      </div>
+
+      <p>But even the most realistic video of the world cannot capture every detail that a person would pick up on. The broken freezer at the back of the shop causing the fresh fish to rot is not caught on camera, for example, nor is the associated smell. Even objects that are not directly visible are beyond it. Generate the contents of one aisle, for example, and the neighbouring ones do not exist for the model until the user enters them. That makes it harder to simulate complex environments, or let multiple users move in the same model.</p>
+
+      <p>Another approach to building world models, therefore, seeks to create full 3D environments rather than 2D simulations. Fei Fei Li, a computer scientist at Stanford University, is leading an approach she calls spatial intelligence. In her view, world models must be interactive, multimodal (capable of interpreting prompts) and consistent. Video-based systems can clear the first two hurdles but balk at the third. Project Genie, for instance, runs for a maximum of 60 seconds before its simulations start fraying at the edges.</p>
+
+      <p>Dr Li's startup, World Labs, has built a world model called Marble that can create digital versions of 3D worlds which are internally consistent and complete. That means it is possible to, for instance, have several users inside the same world. What's more, spaces are not hallucinated afresh each time the user looks around; instead, they are created in their entirety from the off. World Labs is pitching its product to architects, who could use it to dream up a space and explore it virtually before sending it to a 3D printer.</p>
+
+      <p>Yann LeCun, Meta's former chief AI scientist, thinks world models can be built in a different, less literal, way. To him, focusing on real spaces is a distraction. After all, many AIs will have to navigate virtual mazes such as HR systems or legal documents rather than physical spaces such as shops. He believes that giving AIs the tools to consistently model environments of both kinds is an important step towards making them useful. In his view, an AI could use an LLM to interact with such a world model in order to help it carry out tasks, whether in the real world or on a computer.</p>
+
+      <p>That approach, called a Joint-Embedding Predictive Architecture (JEPA), would allow an AI to simulate complex features of the real world. Existing world models focus on what is just about to happen, rather than events that might (or might not) happen in the distant future. Humans think ahead all the time: gauging the weather before deciding whether to leave the house with an umbrella; factoring in the risks of being late for an important meeting when choosing which train to catch; and so on. Crucially, these decisions can be made quickly, without needing to visualise every single second of the day. Current world models have no such shortcut.</p>
+
+      <p>Dr LeCun has been exploring the potential of a JEPA system since 2022, and in November 2025 he left Meta to work on this problem full time. His startup, Advanced Machine Intelligence, plans to turn his ideas into reality, starting with a partnership with Nabla, a health-tech startup. He says the goal is a system which uses its own world model to work out "what sequence of actions will optimally accomplish a task that I'm setting".</p>
+
+      <div class="eco-subhed">A new fantastic point of view</div>
+
+      <p>But what if these complicated approaches are superfluous? If existing generative AI systems can already do useful things in the real world, then maybe they already contain some kind of world model within them. That's the view of Ilya Sutskever, an OpenAI cofounder, and many of his former colleagues still at the lab. Training a large language model is, he said in 2023, no more than "learning a world model". Compressing all the information contained on the internet down into a few hundred gigabytes of numbers is possible only if a system "learns" the underlying principles behind that information.</p>
+
+      <p>There is some evidence he may be right. In 2023 a language model trained on a list of moves in the game Othello was shown to have reflected the board state within its own neural network—even though it had never seen an Othello board nor been taught the rules of the game. It was a detailed enough representation that the researchers could identify specific parts of the neural network that stored the colour of individual pieces. That meant they could make specific tweaks to change its perception of the game, an unprecedented level of control over an LLM's calculations.</p>
+
+      <p>Bigger language models are likely to have more complex world models inside—if only researchers could find them. Anthropic, an AI lab, has been leading research into "interpretability" of its Claude models, finding clusters of artificial neurons that correspond to anything from feelings of guilt to the Golden Gate bridge. And reaching in and changing them, as in the Othello example, causes corresponding changes to the subsequent behaviour of those models. That suggests the systems aren't simply stringing words together: they have a consistent understanding of physical features in the real world, which they draw on to answer questions. It sounds suspiciously like what you would expect from an internal world model.</p>
+
+      <p>Not everyone agrees. LLMs, Dr Li argues, are just "wordsmiths in the dark". Being able to use language to describe the world, she says, does not mean they have a grounded understanding of it. Like a student who has only read about a foreign country, there's a missing piece of knowledge that can't be patched with books, she says. Whichever approach will prove most effective, there is little doubt that AI is about to pay the real world a visit. ■</p>
+
+      <div class="eco-sig">
+        Science &amp; Technology · The Economist · February 28th 2026 edition<br>
+        Print headline: "I can show you the world"
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- SYNTHESIS SCHEMA                               -->
+  <!-- ══════════════════════════════════════════════ -->
+
+  <div class="sec-rule fade-in">
+    <span class="sec-rule-label schema">Synthesis · Prior Art vs. Vindication · Structural Map</span>
+    <hr>
+  </div>
+
+  <div class="schema-block fade-in">
+    <div class="schema-row"><span class="s-key s-prior">PRIOR ART (Oct 2025)</span><span class="s-dot">→</span><span class="s-key">ECONOMIST (Feb 2026)</span><span class="s-dot">·</span><span class="s-val">STRUCTURAL MATCH</span></div>
+    <br>
+    <div class="schema-row"><span class="s-key s-prior">World AI · "simulates reality"</span><span class="s-dot">≡</span><span class="s-val">"World models" · Project Genie · Marble · JEPA</span></div>
+    <div class="schema-row"><span class="s-key s-prior">Perception AI · "senses, sensors, data ingestion"</span><span class="s-dot">≡</span><span class="s-val">IoT layer · sensor data · Ouranos boundary</span></div>
+    <div class="schema-row"><span class="s-key s-prior">Agentic AI · "plan, execute, influence outcomes"</span><span class="s-dot">≡</span><span class="s-val">LeCun JEPA · "sequence of actions to accomplish a task"</span></div>
+    <div class="schema-row"><span class="s-key s-prior">Generative AI · "synthesis within constraints"</span><span class="s-dot">≡</span><span class="s-val">LLMs · "wordsmiths in the dark" (Li) · Sutskever's implicit world model</span></div>
+    <div class="schema-row"><span class="s-key s-prior">Embodied AI · "co-adaptation, ethical outputs"</span><span class="s-dot">≡</span><span class="s-val">Humanoid robots shopping · self-driving cars · "physical world visit"</span></div>
+    <br>
+    <div class="schema-row"><span class="s-key s-acc">"LLMs describe reality, World AI simulates it"</span><span class="s-dot">≡</span><span class="s-acc">"LLMs are just wordsmiths in the dark" — Fei-Fei Li</span></div>
+    <br>
+    <div class="schema-row"><span class="s-key">Interval between prior art and mainstream coverage</span><span class="s-dot">·</span><span class="s-val">~4 months · October 2025 → February 2026</span></div>
+  </div>
+
+
+  <!-- ══ CODA ══ -->
+  <div class="coda fade-in">
+    <span class="coda-label">Coda · Ukubona</span>
+    <h2>The Pentad Was the Map. The Economist Drew the Territory.</h2>
+    <p>In October 2025, a single line — <strong>"LLMs describe reality, World AI simulates it"</strong> — placed World AI at the base of a five-layer stack and explicitly distinguished it from generative models. Four months later, the Economist ran a cover-level science piece making precisely that distinction the organizing thesis of its AI coverage.</p>
+    <p>The pentad taxonomy was not a prediction. It was a structural reading — rooted in the topology of engineered systems, in the same <code>O)-(O</code> pattern found in trees, lungs, and airports. Classification precedes vindication. The map precedes the territory.</p>
+    <p>The GOAX discourse (Signal → Receptor → <strong>Digital Twin</strong> → Effector → Effect) is the same architecture: World AI is the twin that sits at Stage III, transducing raw physical ontology into legible gradient — the Apollonian messenger the institution can interrogate before committing atoms. LeCun's JEPA is the same claim in the language of machine learning. The physics was always there.</p>
+    <p><strong>Ukubona. To see, to witness — to look into the mirror.</strong> 🍇</p>
+  </div>
+
+  <footer>
+    <div class="foot-chain">
+      World AI · Perception AI · <span>Agentic AI</span> · Generative AI · Embodied AI
+    </div>
+    <div class="foot-note">
+      Prior Art: <a href="https://ukb-dt.github.io/ai-types/">ukb-dt.github.io/ai-types/</a> · <a href="https://ukb-dt.github.io/ai-types-00/">ai-types-00/</a> · October 2025<br>
+      Economist: "AI tools are being prepared for the physical world" · Feb 28th 2026<br>
+      Related: <a href="https://eplnm.github.io/repos-00/ukhona/html/mdt-mrna.html">mdt-mrna.html</a> · <a href="https://cryo-pyro.github.io/repos-00/ukhona/html/apollonian.html">apollonian.html</a><br>
+      <br>
+      Ukubona LLC · "to see, to witness — to look into the mirror"<br>
+      Part of the GOAX Discourse series · World Models · Digital Twin Initiative
+    </div>
+  </footer>
+
+</div><!-- /page -->
+
+<!-- CENTRALIZED ASSETS (Don't Update) -->
+<div class="scroll-indicator"><div class="scroll-progress"></div></div>
+<div class="bg-pattern"></div>
+<header class="header" id="header"></header>
+<main class="page wrap-max"></main>
+<div id="footer-placeholder"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js"></script>
+<script src="../js/shared.js"></script>
+
+<script>
+/* ── THEME TOGGLE ── */
+(function () {
+  const root = document.documentElement;
+  const btn  = document.getElementById('themeSwitch');
+  const lbl  = document.getElementById('toggle-label');
+
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  let dark = prefersDark;
+
+  function apply() {
+    root.setAttribute('data-theme', dark ? 'dark' : 'light');
+    btn.setAttribute('aria-pressed', dark);
+    lbl.textContent = dark ? 'Dark' : 'Light';
+  }
+
+  apply();
+
+  btn.addEventListener('click', () => { dark = !dark; apply(); });
+  btn.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') { dark = !dark; apply(); }
+  });
+})();
+
+/* ── FADE IN OBSERVER ── */
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+  });
+}, { threshold: 0.05 });
+document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>

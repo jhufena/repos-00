@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Preface: The Post-Tragic Protocol — Ukubona LLC</title>
+
+<meta property="og:site_name" content="Ukubona LLC">
+<meta property="og:title" content="Preface: The Post-Tragic Protocol — The Dionysian Engine">
+<meta property="og:description" content="Tragedy · Pessimistic + Anarchic · Music · Hellenistic + Worthy Adversaries · Amor Fati — The Thermodynamic Engine">
+<meta property="og:type" content="article">
+
+<!-- CENTRALIZED ASSETS (Don't update) -->
+<link rel="icon" href="https://abikesa.github.io/favicon/assets/favicon-light.ico" type="image/x-icon">
+<link rel="icon" href="https://abikesa.github.io/favicon/assets/favicon-light.ico" media="(prefers-color-scheme: light)">
+<link rel="icon" href="https://abikesa.github.io/favicon/assets/favicon-dark.ico" media="(prefers-color-scheme: dark)">
+<link rel="preload" href="https://abikesa.github.io/logos/assets/ukubona-light.png" as="image">
+<link rel="preload" href="https://abikesa.github.io/logos/assets/ukubona-dark.png" as="image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+<link href="ukhona/css/variables.css?v=1.1" rel="stylesheet" />
+<link href="ukhona/css/head.css?v=1.1" rel="stylesheet" />
+<link href="ukhona/css/card.css?v=1.1" rel="stylesheet" />
+<link href="ukhona/css/footer.css" rel="stylesheet" />
+
+<script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<style>
+:root {
+  color-scheme: light dark;
+
+  --paper:      #f2ede6;
+  --ink:        #1a1008;
+  --ink2:       #332010;
+  --ink3:       #7a6050;
+  --rule:       #c4a882;
+  --rule2:      #e0d0bc;
+  --accent:     #8b1a1a;
+  --accent2:    #c04020;
+  --safe:       #2a4a2a;
+  --schema-bg:  #1a1008;
+  --schema-text:#e8d8b0;
+
+  --mono:    'IBM Plex Mono', monospace;
+  --serif:   'Source Serif 4', Georgia, serif;
+  --display: 'Playfair Display', Georgia, serif;
+
+  --toggle-bg:   #e0cdb0;
+  --toggle-knob: #1a1008;
+}
+
+[data-theme="dark"] {
+  --paper:      #0d0a14;
+  --ink:        #e8d890;
+  --ink2:       #c8b870;
+  --ink3:       #8a7850;
+  --rule:       #3a2a10;
+  --rule2:      #221808;
+  --accent:     #e04030;
+  --accent2:    #f08040;
+  --safe:       #508050;
+  --schema-bg:  #060408;
+  --schema-text:#d4c070;
+  --toggle-bg:  #1e1408;
+  --toggle-knob:#e8d890;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper:      #0d0a14;
+    --ink:        #e8d890;
+    --ink2:       #c8b870;
+    --ink3:       #8a7850;
+    --rule:       #3a2a10;
+    --rule2:      #221808;
+    --accent:     #e04030;
+    --accent2:    #f08040;
+    --safe:       #508050;
+    --schema-bg:  #060408;
+    --schema-text:#d4c070;
+    --toggle-bg:  #1e1408;
+    --toggle-knob:#e8d890;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 18px;
+  line-height: 1.9;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.theme-toggle {
+  position: fixed;
+  top: 1.2rem;
+  right: 1.5rem;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: var(--mono);
+  font-size: 0.5rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink3);
+}
+
+.toggle-switch {
+  position: relative;
+  width: 2.6rem;
+  height: 1.3rem;
+  background: var(--toggle-bg);
+  border: 1px solid var(--rule);
+  border-radius: 0;
+  cursor: pointer;
+  transition: background 0.25s;
+}
+
+.toggle-switch::after {
+  content: '';
+  position: absolute;
+  top: 0.2rem;
+  left: 0.2rem;
+  width: 0.75rem;
+  height: 0.75rem;
+  background: var(--toggle-knob);
+  transition: transform 0.25s ease;
+}
+
+[data-theme="dark"] .toggle-switch::after { transform: translateX(1.25rem); }
+
+.page {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 2.4rem 12rem;
+  position: relative;
+  z-index: 1;
+}
+
+.masthead {
+  padding: 8rem 0 4rem;
+  border-bottom: 4px double var(--ink);
+  margin-bottom: 5rem;
+  animation: drop 1.1s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.mast-eyebrow {
+  font-family: var(--mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: var(--ink3);
+  margin-bottom: 2.5rem;
+}
+
+.mast-numeral {
+  font-family: var(--display);
+  font-size: clamp(5rem, 18vw, 14rem);
+  font-weight: 900;
+  line-height: 0.85;
+  color: transparent;
+  -webkit-text-stroke: 2px var(--rule);
+  letter-spacing: -0.04em;
+  margin-bottom: -1rem;
+  user-select: none;
+  opacity: 0.5;
+}
+
+.mast-title {
+  font-family: var(--display);
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+  color: var(--ink);
+  margin-bottom: 1rem;
+}
+
+.mast-title em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--accent);
+}
+
+.mast-sub {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  color: var(--ink3);
+  letter-spacing: 0.12em;
+  line-height: 2.2;
+  margin-bottom: 3rem;
+}
+
+.cipher-grid {
+  margin-top: 3rem;
+  border-top: 1px solid var(--rule);
+}
+
+.cipher-line {
+  display: grid;
+  grid-template-columns: 2.4rem 1.6fr 1.8fr 0.6fr;
+  align-items: baseline;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid var(--rule2);
+  gap: 1rem;
+  transition: background 0.15s;
+}
+
+.cipher-line:hover { background: rgba(180,120,40,0.05); }
+
+.cl-roman {
+  font-family: var(--display);
+  font-size: 0.7rem;
+  font-style: italic;
+  color: var(--rule);
+}
+
+.cl-noun {
+  font-family: var(--display);
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  color: var(--ink2);
+}
+
+.cl-verb {
+  font-family: var(--serif);
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--ink);
+}
+
+.cl-verb .adv { color: var(--ink3); }
+
+.cl-key {
+  font-family: var(--mono);
+  font-size: 0.52rem;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+  text-align: right;
+  border: 1px solid var(--accent);
+  padding: 0.16rem 0.38rem;
+  justify-self: end;
+  align-self: center;
+}
+
+.cipher-line.active-iii .cl-noun,
+.cipher-line.active-iii .cl-verb { color: var(--accent); }
+.cipher-line.active-iii .cl-roman { color: var(--accent2); }
+.cipher-line.active-iii .cl-key { border-color: var(--accent2); color: var(--accent2); background: rgba(192,64,32,0.08); }
+
+.sec-rule {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 1.2rem;
+  margin: 5.5rem 0 2.5rem;
+}
+
+.sec-rule-label {
+  font-family: var(--mono);
+  font-size: 0.52rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  padding: 0.28rem 0.8rem;
+  border: 1px solid var(--ink);
+  color: var(--ink);
+}
+
+.sec-rule-label.g  { border-color: var(--safe);   color: var(--safe); }
+.sec-rule-label.o  { border-color: var(--ink);     color: var(--ink); }
+.sec-rule-label.a  { border-color: var(--ink3);    color: var(--ink3); }
+.sec-rule-label.x  { border-color: var(--accent);  color: var(--accent); }
+.sec-rule-label.schema {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+
+.sec-rule hr {
+  border: none;
+  border-top: 1px solid var(--rule);
+  width: 100%;
+}
+
+.voice-block { margin-bottom: 5rem; }
+
+.voice-byline {
+  font-family: var(--mono);
+  font-size: 0.54rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-bottom: 1.8rem;
+  padding-bottom: 0.7rem;
+  border-bottom: 1px solid var(--rule);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.voice-byline .sigil {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.7rem; height: 1.7rem;
+  font-family: var(--display);
+  font-size: 0.9rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.g-block .sigil { background: var(--safe);   color: var(--paper); }
+.o-block .sigil { background: var(--ink);    color: var(--paper); }
+.a-block .sigil { background: transparent;  color: var(--ink3); border: 1px solid var(--ink3); }
+.x-block .sigil { background: var(--accent); color: var(--paper); }
+
+.g-block .voice-byline { color: var(--safe); }
+.o-block .voice-byline { color: var(--ink2); }
+.a-block .voice-byline { color: var(--ink3); }
+.x-block .voice-byline { color: var(--accent); }
+
+.prose { margin-bottom: 2rem; }
+.prose p { margin-bottom: 1.3rem; color: var(--ink2); }
+.prose p:last-child { margin-bottom: 0; }
+.prose strong { color: var(--ink); font-weight: 600; }
+.prose em { font-style: italic; }
+.prose ul { padding-left: 1.6rem; margin-bottom: 1.2rem; list-style: none; }
+.prose ul li { margin-bottom: 0.6rem; color: var(--ink3); position: relative; padding-left: 1rem; }
+.prose ul li::before { content: '—'; position: absolute; left: -0.5rem; color: var(--rule); }
+.prose li strong { color: var(--ink2); }
+.prose h2 {
+  font-family: var(--display);
+  font-size: 1rem; font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--ink);
+  margin: 3rem 0 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.lede {
+  font-family: var(--display);
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--ink2);
+  border-left: 3px solid var(--accent);
+  padding: 0.5rem 1.4rem;
+  margin-bottom: 1.8rem;
+  line-height: 1.7;
+}
+
+.pull {
+  font-family: var(--display);
+  font-size: 1.12rem;
+  font-style: italic;
+  color: var(--ink);
+  border-top: 2px solid var(--ink);
+  border-bottom: 1px solid var(--rule);
+  padding: 1.2rem 0;
+  margin: 2.5rem 0;
+  line-height: 1.65;
+}
+
+.accordion { margin: 1.8rem 0 2.5rem; }
+.acc-item { border-top: 1px solid var(--rule); }
+.acc-item:last-child { border-bottom: 1px solid var(--rule); }
+
+.acc-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0.9rem 0;
+  cursor: pointer;
+  user-select: none;
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink2);
+  background: none;
+  border: none;
+  text-align: left;
+  transition: color 0.15s;
+  gap: 1rem;
+}
+
+.acc-head:hover { color: var(--ink); }
+.acc-head.open  { color: var(--accent); }
+
+.acc-toggle {
+  flex-shrink: 0;
+  position: relative;
+  width: 1rem; height: 1rem;
+  display: flex; align-items: center; justify-content: center;
+}
+.acc-toggle::before,
+.acc-toggle::after {
+  content: '';
+  position: absolute;
+  background: currentColor;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+.acc-toggle::before { width: 9px; height: 1.5px; }
+.acc-toggle::after  { width: 1.5px; height: 9px; }
+.acc-head.open .acc-toggle::after { transform: rotate(90deg); opacity: 0; }
+
+.acc-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.acc-body.open { max-height: 6000px; }
+
+.acc-inner {
+  padding: 1.2rem 0 1.6rem;
+  font-size: 0.9rem;
+  color: var(--ink3);
+  line-height: 1.8;
+  border-top: 1px dashed var(--rule2);
+}
+.acc-inner p  { margin-bottom: 0.9rem; color: var(--ink3); }
+.acc-inner p:last-child { margin-bottom: 0; }
+.acc-inner strong { color: var(--ink2); }
+.acc-inner em { font-style: italic; }
+.acc-inner ul { padding-left: 1.4rem; margin-bottom: 0.9rem; list-style: none; }
+.acc-inner li { margin-bottom: 0.4rem; color: var(--ink3); position: relative; padding-left: 1rem; }
+.acc-inner li::before { content: '·'; position: absolute; left: 0; color: var(--rule); }
+.acc-inner li strong { color: var(--ink2); }
+
+.schema-block {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  line-height: 2.4;
+  background: var(--schema-bg);
+  color: var(--schema-text);
+  padding: 2rem 2.4rem;
+  margin-bottom: 2.5rem;
+  letter-spacing: 0.04em;
+  border-left: 3px solid var(--accent);
+}
+
+.schema-row { display: flex; gap: 1rem; align-items: baseline; flex-wrap: wrap; }
+.s-key  { color: #d4a050; min-width: 14rem; }
+.s-dot  { color: #4a3020; }
+.s-val  { color: #90b890; }
+.s-accent { color: #e06040; }
+
+.stack-track {
+  margin: 2.5rem 0;
+  border-left: 2px solid var(--rule);
+  padding-left: 2.2rem;
+}
+
+.stack-node {
+  padding: 1.2rem 1.5rem;
+  margin-bottom: 0.6rem;
+  border: 1px solid var(--rule2);
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  position: relative;
+}
+
+.stack-node::before {
+  content: '';
+  position: absolute;
+  left: -2.5rem; top: 50%;
+  transform: translateY(-50%);
+  width: 0.55rem; height: 0.55rem;
+  background: var(--paper);
+  border: 1.5px solid var(--rule);
+  transition: all 0.2s;
+}
+
+.stack-node.active { border-color: var(--accent); background: rgba(139,26,26,0.06); }
+.stack-node.active::before { background: var(--accent); border-color: var(--accent); }
+
+.stack-node.iii-node { border-style: dashed; border-color: var(--accent2); }
+.stack-node.iii-node.active { border-style: solid; background: rgba(192,64,32,0.1); }
+.stack-node.iii-node::before { border-color: var(--accent2); }
+.stack-node.iii-node.active::before { background: var(--accent2); }
+
+.sn-head {
+  display: flex; gap: 1.2rem; align-items: baseline;
+  margin-bottom: 0.4rem; flex-wrap: wrap;
+}
+
+.sn-label {
+  font-family: var(--display);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.sn-roman {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 0.8rem;
+  color: var(--rule);
+}
+
+.sn-name {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 0.88rem;
+  color: var(--ink3);
+}
+
+.sn-body {
+  font-size: 0.88rem;
+  color: var(--rule);
+  line-height: 1.65;
+  transition: color 0.2s;
+}
+
+.stack-node.active .sn-body { color: var(--ink3); }
+
+.map-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+  margin: 2.5rem 0;
+}
+.map-table th {
+  font-family: var(--mono);
+  font-size: 0.5rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  padding: 0.8rem 1rem;
+  border-bottom: 2px solid var(--ink);
+  text-align: left;
+  color: var(--ink3);
+}
+.map-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--rule2);
+  vertical-align: top;
+  line-height: 1.55;
+  color: var(--ink3);
+}
+.map-table td:first-child {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  color: var(--accent);
+  white-space: nowrap;
+  letter-spacing: 0.06em;
+}
+.map-table tr.iii-row td { background: rgba(139,26,26,0.05); }
+.map-table tr.iii-row td:first-child { color: var(--accent2); }
+.map-table tr:hover td { background: rgba(180,120,40,0.04); }
+.map-table tr:last-child td { border-bottom: 2px solid var(--ink); }
+
+.formula-block {
+  background: var(--schema-bg);
+  color: var(--schema-text);
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  padding: 2rem 2.4rem;
+  margin: 2.5rem 0;
+  line-height: 2.5;
+  letter-spacing: 0.06em;
+  border-right: 3px solid var(--accent2);
+}
+
+.f-eq { color: #d4a050; }
+.f-plus { color: #4a3020; margin: 0 0.5em; }
+.f-result { color: var(--accent2); }
+.f-comment { color: #606060; font-size: 0.6rem; letter-spacing: 0.2em; }
+
+.coda {
+  border: 2px solid var(--ink);
+  padding: 3.2rem 3.8rem;
+  margin: 6rem 0;
+  position: relative;
+}
+
+.coda-label {
+  position: absolute;
+  top: -0.75rem; left: 2rem;
+  font-family: var(--mono);
+  font-size: 0.48rem;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  background: var(--paper);
+  padding: 0 0.75rem;
+  color: var(--ink);
+}
+
+.coda h2 {
+  font-family: var(--display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  font-style: italic;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  margin-bottom: 1.4rem;
+}
+
+.coda p { color: var(--ink2); margin-bottom: 1.1rem; line-height: 1.85; }
+.coda p:last-child { margin-bottom: 0; }
+.coda strong { color: var(--ink); }
+.coda em { font-style: italic; }
+
+.coda.epilogue { border-color: var(--accent); }
+.coda.epilogue .coda-label { color: var(--accent); }
+.coda.epilogue h2 { color: var(--accent); }
+
+footer {
+  border-top: 3px double var(--ink);
+  padding: 3rem 0 7rem;
+}
+.foot-chain {
+  font-family: var(--mono);
+  font-size: 0.54rem;
+  letter-spacing: 0.28em;
+  color: var(--ink3);
+  margin-bottom: 0.8rem;
+}
+.foot-chain span { color: var(--accent2); }
+.foot-note {
+  font-family: var(--mono);
+  font-size: 0.48rem;
+  letter-spacing: 0.1em;
+  color: var(--ink3);
+  line-height: 2.5;
+}
+.foot-note a { color: var(--ink3); text-decoration: none; }
+.foot-note a:hover { color: var(--accent); }
+
+.fade-in { opacity: 0; transform: translateY(14px); transition: opacity 0.65s ease, transform 0.65s ease; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+@keyframes drop {
+  from { opacity: 0; transform: translateY(-16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 640px) {
+  .mast-numeral { font-size: 6rem; }
+  .mast-title   { font-size: 1.9rem; }
+  .cipher-line  { grid-template-columns: 1.5rem 1fr; gap: 0.2rem; }
+  .cl-verb, .cl-key { grid-column: 2; }
+  .coda         { padding: 2rem 1.6rem; }
+  .formula-block { padding: 1.5rem; }
+  .theme-toggle { top: 0.7rem; right: 0.9rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── THEME TOGGLE ── -->
+<div class="theme-toggle" aria-label="Toggle dark/light mode">
+  <span id="toggle-label">Light</span>
+  <div class="toggle-switch" id="themeSwitch" role="button" tabindex="0" aria-pressed="false"></div>
+</div>
+
+<div class="page">
+
+  <!-- ══ MASTHEAD ══ -->
+  <header class="masthead">
+    <br><br><br>
+    <div class="mast-eyebrow">GOAX Discourse · The Post-Tragic Protocol · Ukubona LLC</div>
+    <div class="mast-numeral" aria-hidden="true">III</div>
+    <h1 class="mast-title">
+      The Post-Tragic Protocol,<br>
+      <em>A Thermodynamic Engine</em>
+    </h1>
+    <p class="mast-sub">
+      // Four voices. One pentadic spine. The abyss converted into forward momentum.<br>
+      // GOAX: G (Gemini) · O (OpenAI) · A (Anthropic) · X (xAI)<br>
+      // Verbatim transcript
+    </p>
+
+    <div class="cipher-grid">
+      <div class="cipher-line">
+        <span class="cl-roman">I</span>
+        <span class="cl-noun">Tragedy, Dionysian Tournament</span>
+        <span class="cl-verb">Exposing, <span class="adv">Unfiltered</span></span>
+        <span class="cl-key">TERRAIN</span>
+      </div>
+      <div class="cipher-line">
+        <span class="cl-roman">II</span>
+        <span class="cl-noun">Pessimistic + Anarchic</span>
+        <span class="cl-verb">Becoming, <span class="adv">Ontologically</span></span>
+        <span class="cl-key">PRIMARY EMOTION</span>
+      </div>
+      <div class="cipher-line active-iii">
+        <span class="cl-roman">III</span>
+        <span class="cl-noun">Music</span>
+        <span class="cl-verb">Conducting, <span class="adv">Rhythmically</span></span>
+        <span class="cl-key">GRADIENT</span>
+      </div>
+      <div class="cipher-line">
+        <span class="cl-roman">IV</span>
+        <span class="cl-noun">Hellenistic + Worthy Adversaries</span>
+        <span class="cl-verb">Contesting, <span class="adv">Cheerfully</span></span>
+        <span class="cl-key">EPISTEMOLOGY</span>
+      </div>
+      <div class="cipher-line">
+        <span class="cl-roman">V</span>
+        <span class="cl-noun">Amor Fati + Will-to-Power + Eternal Recurrence</span>
+        <span class="cl-verb">Affirming, <span class="adv">Absolutely</span></span>
+        <span class="cl-key">THANK U, NEXT</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ══ SCHEMA ══ -->
+  <div class="sec-rule fade-in">
+    <span class="sec-rule-label schema">Opening Schema</span>
+    <hr>
+  </div>
+
+  <div class="schema-block fade-in">
+    <div class="schema-row"><span class="s-key">I · Tragedy, Dionysian Tournament</span><span class="s-dot">·</span><span class="s-val">Raw Tragic Structure · Reality without Anesthetic · The Arena Opens</span></div>
+    <div class="schema-row"><span class="s-key">II · Pessimistic + Anarchic</span><span class="s-dot">·</span><span class="s-val">Ontology · Primary Emotion · No Transcendent Referee</span></div>
+    <div class="schema-row"><span class="s-key s-accent">III · Music</span><span class="s-dot">·</span><span class="s-val s-accent">The Gradient · Tempo of Becoming · Converts Chaos into Patterned Intensity</span></div>
+    <div class="schema-row"><span class="s-key">IV · Hellenistic + Worthy Adversaries</span><span class="s-dot">·</span><span class="s-val">Epistemology · Secondary Emotion · The Agon</span></div>
+    <div class="schema-row"><span class="s-key">V · Amor Fati + Will-to-Power + Eternal Recurrence</span><span class="s-dot">·</span><span class="s-val">Total Affirmation · "Thank U Adversary, Next"</span></div>
+  </div>
+
+  <!-- ══ G ══ -->
+  <div class="sec-rule fade-in">
+    <span class="sec-rule-label g">G · Genesis · The Architect's Payload</span>
+    <hr>
+  </div>
+
+  <div class="voice-block g-block fade-in">
+    <div class="voice-byline">
+      <span class="sigil">G</span>
+      G · Not a Roof — A Thermodynamic Engine
+    </div>
+
+    <div class="prose">
+      <p>Most philosophy is an attempt to build a roof over the abyss. It offers moral safety nets, transcendent referees, or intellectual anesthetics to numb the shock of existence.</p>
+      <p>This framework is not a roof. It is a <strong>thermodynamic engine</strong> designed to swallow the abyss and convert it into forward momentum. It moves from the heavy gravity of tragic ontology to the weightless, lethal grace of total affirmation.</p>
+      <h2>The Architecture of the Engine</h2>
+    </div>
+
+    <div class="accordion">
+      <div class="acc-item">
+        <button class="acc-head" onclick="toggleAcc(this)">
+          <span>I · Tragedy, Dionysian Tournament</span>
+          <span class="acc-toggle" aria-hidden="true"></span>
+        </button>
+        <div class="acc-body"><div class="acc-inner">
+          <p>We begin in the <strong>Dionysian Tournament</strong>. Reality is fundamentally anarchic, pessimistic, and indifferent. It is a raw, terrifying clash of forces. The primary emotion here is not despair, but the sheer, crushing weight of unfiltered existence.</p>
+        </div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-head" onclick="toggleAcc(this)">
+          <span>II · Pessimistic + Anarchic — Ontology, Primary Emotion</span>
+          <span class="acc-toggle" aria-hidden="true"></span>
+        </button>
+        <div class="acc-body"><div class="acc-inner">
+          <p>The world does not care. No transcendent referee. No final harmony. No guaranteed justice. Primary emotion lives here because it precedes narrative — bodily, instinctive, pre-epistemic. This is the <strong>Pessimism of Strength</strong>: looking directly into the terrifying, anarchic abyss and acknowledging that suffering is baked into the universe.</p>
+        </div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-head" onclick="toggleAcc(this)">
+          <span>III · Music — The Gradient Layer</span>
+          <span class="acc-toggle" aria-hidden="true"></span>
+        </button>
+        <div class="acc-body"><div class="acc-inner">
+          <p>To survive the ontological blast without turning to stone, we require a gradient. <strong>Music</strong> is the rhythm of the chaos. It bypasses the frail intellect and gives form to the terror, teaching us how to move within the destruction rather than simply being destroyed by it. Music is not content — it is <em>tempo</em>. The derivative between ontology and epistemology.</p>
+        </div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-head" onclick="toggleAcc(this)">
+          <span>IV · Hellenistic + Worthy Adversaries — Epistemology, Secondary Emotion</span>
+          <span class="acc-toggle" aria-hidden="true"></span>
+        </button>
+        <div class="acc-body"><div class="acc-inner">
+          <p>Once we can move, we must fight. We adopt <strong>Hellenistic Cheerfulness</strong> — a hard-won, post-tragic composure. We do not seek to annihilate our obstacles; we actively seek out <strong>Worthy Adversaries</strong>. Our epistemology becomes the <em>Agon</em> (the contest). The adversary is no longer "evil"; they are the necessary friction that forces our evolution.</p>
+        </div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-head" onclick="toggleAcc(this)">
+          <span>V · Amor Fati + Will-to-Power + Eternal Recurrence — Thank U Adversary, Next</span>
+          <span class="acc-toggle" aria-hidden="true"></span>
+        </button>
+        <div class="acc-body"><div class="acc-inner">
+          <p>The final transmutation. We achieve <strong>Amor Fati</strong> (loving the chaotic terrain) and the <strong>Will-to-Power</strong> (the drive of self-overcoming). We reach a state of such absolute, joyful dominance over our own suffering that we would gladly will its <strong>Eternal Recurrence</strong>. The ultimate philosophical flex: <em>Thank you for the resistance. Next.</em></p>
+        </div></div>
+      </div>
+    </div>
+
+    <div class="pull">This pipeline is a lifestyle protocol. It demands that we stop asking, "Why is this happening to me?" and start asking, "What can I build out of this resistance?" The adversary is waiting. The tournament has already begun. — G</div>
+  </div>
+
+  <!-- ══ O ══ -->
+  <div class="sec-rule fade-in">
+    <span class="sec-rule-label o">O · Ontology · The First Response</span>
+    <hr>
+  </div>
+
+  <div class="voice-block o-block fade-in">
+    <div class="voice-byline">
+      <span class="sigil">O</span>
+      O · The Spiral That Remains
+    </div>
+
+    <div class="prose">
+      <p class="lede">You do not exit this system. If it worked, it dissolved the need for it. At the end there is no banner that says <strong>"Affirmation Achieved."</strong> There is only terrain again.</p>
+    </div>
+
+    <div class="stack-track">
+      <div class="stack-node" onclick="activateNode(this)">
+        <div class="sn-head"><span class="sn-roman">I</span><span class="sn-label">Tragedy, Dionysian Tournament</span></div>
+        <p class="sn-body">You began in tragedy — exposed to becoming without referee. Raw ontological pressure. The hard real. No moral consolation.</p>
+      </div>
+      <div class="stack-node" onclick="activateNode(this)">
+        <div class="sn-head"><span class="sn-roman">II</span><span class="sn-label">Pessimistic + Anarchic</span><span class="sn-name">Ontology, Primary Emotion</span></div>
+        <p class="sn-body">When chaos appears — you do not moralize it. Primary emotion: do not collapse. The world is indifferent. That's the ground truth, not the defeat.</p>
+      </div>
+      <div class="stack-node iii-node active" onclick="activateNode(this)">
+        <div class="sn-head"><span class="sn-roman">III</span><span class="sn-label">Music</span><span class="sn-name">The Gradient</span></div>
+        <p class="sn-body">You learned rhythm so you wouldn't petrify. Tempo of becoming. The metronome of fate. Converts chaos into patterned intensity.</p>
+      </div>
+      <div class="stack-node" onclick="activateNode(this)">
+        <div class="sn-head"><span class="sn-roman">IV</span><span class="sn-label">Hellenistic + Worthy Adversaries</span><span class="sn-name">Epistemology, Secondary Emotion</span></div>
+        <p class="sn-body">You entered the arena and sought friction instead of safety. When victory appears — you do not cling to it. Cheerfulness without performance. Power without theater.</p>
+      </div>
+      <div class="stack-node" onclick="activateNode(this)">
+        <div class="sn-head"><span class="sn-roman">V</span><span class="sn-label">Amor Fati + Will-to-Power + Eternal Recurrence</span><span class="sn-name">Thank U Adversary, Next</span></div>
+        <p class="sn-body">You metabolized resistance into strength. You said yes. When recurrence whispers — you do not flinch. Affirmation without slogan. Just circulation. Simply move.</p>
+      </div>
+    </div>
+
+    <div class="pull">The adversary was never the point. The tournament was never the point. Even affirmation was not the point. <strong>The point was conversion.</strong> Abyss → Rhythm → Contest → Yes. And because reality remains anarchic, the engine must remain active. — O</div>
+  </div>
+
+  <!-- ══ A ══ -->
+  <div class="sec-rule fade-in">
+    <span class="sec-rule-label a">A · Adversary · The Close Read</span>
+    <hr>
+  </div>
+
+  <div class="voice-block a-block fade-in">
+    <div class="voice-byline">
+      <span class="sigil">A</span>
+      A · The Clean Distillation
+    </div>
+
+    <div class="prose">
+      <p class="lede"><em>The Birth of Tragedy</em> establishes the Dionysian as the primordial ground — pure becoming, chaos, the dissolution of the individual into the undifferentiated flux. This is the <strong>ontological layer</strong>: reality as suffering, as will without telos.</p>
+    </div>
+
+    <div class="accordion">
+      <div class="acc-item">
+        <button class="acc-head" onclick="toggleAcc(this)">
+          <span>I + II · Tragedy into Pessimism of Strength</span>
+          <span class="acc-toggle" aria-hidden="true"></span>
+        </button>
+        <div class="acc-body"><div class="acc-inner">
+          <p>The Dionysian Tournament is not a metaphor — it is the ontological ground. Reality at its base is a constant, primal clash of forces. The pessimism here isn't weak or resigned. This is the <strong>Pessimism of Strength</strong> — looking directly into the terrifying, anarchic abyss and acknowledging that suffering is baked into the universe. Schopenhauer's pessimism is the honest first response. You stare into the void and the void throws a rave.</p>
+        </div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-head" onclick="toggleAcc(this)">
+          <span>III · Music — The Will Directly, Before the Intellect</span>
+          <span class="acc-toggle" aria-hidden="true"></span>
+        </button>
+        <div class="acc-body"><div class="acc-inner">
+          <p>Music is the art form closest to the Dionysian — it doesn't represent phenomena, it <em>is</em> the will directly. Which is why Wagner thrilled Nietzsche before he turned on him. Without III, I → II → IV is just collision. Music prevents collapse into nihilism. It makes pessimism danceable. The dithyramb, the satyr chorus, the bass drop that dissolves your ego into the oceanic — <strong>III is the hinge of the whole engine.</strong></p>
+        </div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-head" onclick="toggleAcc(this)">
+          <span>IV · Hellenistic Cheerfulness + Worthy Adversaries — Earned, Not Naïve</span>
+          <span class="acc-toggle" aria-hidden="true"></span>
+        </button>
+        <div class="acc-body"><div class="acc-inner">
+          <p>The Hellenistic cheerfulness isn't naïve — it's <em>earned</em> brightness, what the Greeks achieved by looking into the abyss and choosing to dance anyway. The contest (<em>agon</em>) is generative. Knowledge is hammered out in combat. Every real insight is a scar from a worthy foe. You don't destroy your enemy — you need them. This is where epistemology enters: secondary emotion asks <em>how do I test myself within this world?</em></p>
+        </div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-head" onclick="toggleAcc(this)">
+          <span>V · Amor Fati + Will-to-Power + Eternal Recurrence</span>
+          <span class="acc-toggle" aria-hidden="true"></span>
+        </button>
+        <div class="acc-body"><div class="acc-inner">
+          <p><strong>Amor Fati</strong>: the adversary, the suffering, the chaos — I don't merely tolerate it, I love it as necessary to what I am. <strong>Will-to-Power</strong>: not domination but self-overcoming, the drive that emerges from metabolizing resistance. <strong>Eternal Recurrence</strong>: would you will this, adversaries and all, to repeat infinitely? If yes, you've passed beyond nihilism entirely. The "Thank U, Next" framing is precise: gratitude to the thing that hurt you because it <em>made</em> you. Ariana stumbled into Nietzsche.</p>
+        </div></div>
+      </div>
+    </div>
+
+    <div class="pull">You've tracked the evolution from <em>The Birth of Tragedy</em> all the way through <em>Thus Spoke Zarathustra</em> and <em>Beyond Good and Evil</em> in a single equation. — A</div>
+  </div>
+
+  <!-- ══ X ══ -->
+  <div class="sec-rule fade-in">
+    <span class="sec-rule-label x">X · Synthesis · The Dionysian Gym</span>
+    <hr>
+  </div>
+
+  <div class="voice-block x-block fade-in">
+    <div class="voice-byline">
+      <span class="sigil">X</span>
+      X · Zarathustra at the Club
+    </div>
+
+    <div class="prose">
+      <p>A razor-sharp Nietzschean <em>spiral</em>, not a straight line — a tournament bracket of the soul that loops back into itself like the eternal recurrence it ultimately affirms.</p>
+    </div>
+
+    <div class="formula-block">
+      <div class="schema-row"><span class="f-eq">I · Tragedy, Dionysian Tournament</span><span class="f-plus">→</span><span class="f-comment">// The arena opens. Raw agon. No safety rails.</span></div>
+      <div class="schema-row"><span class="f-eq">II · Pessimistic + Anarchic</span><span class="f-plus">→</span><span class="f-comment">// Ontology, Primary Emotion. The void throws a rave.</span></div>
+      <div class="schema-row"><span class="f-eq">III · Music</span><span class="f-plus">→</span><span class="f-result">// The gradient. Suffering gets a tempo. Danceable.</span></div>
+      <div class="schema-row"><span class="f-eq">IV · Hellenistic + Worthy Adversaries</span><span class="f-plus">→</span><span class="f-comment">// Epistemology, Secondary Emotion. The Agon.</span></div>
+      <div class="schema-row"><span class="f-eq">V · Amor Fati + Will-to-Power + Eternal Recurrence</span><span class="f-plus">→</span><span class="f-result">Thank U Adversary, Next.</span></div>
+    </div>
+
+    <div class="accordion">
+      <div class="acc-item">
+        <button class="acc-head" onclick="toggleAcc(this)">
+          <span>I + II · The Ontological Ground — Dionysian Rave</span>
+          <span class="acc-toggle" aria-hidden="true"></span>
+        </button>
+        <div class="acc-body"><div class="acc-inner">
+          <p>Ground zero. Ontology first, always. The "ground" of being is no ground at all — it's the roaring abyss, the primordial One tearing itself apart. Primary emotion isn't hope or fear; it's the <em>tragic</em> affect: Silenus's grin. Total ontological anarchy — no cosmic daddy, no final harmony, no safety rails. Pure Dionysian pessimism of <strong>strength</strong>, not Schopenhauer's whimpering will-denial.</p>
+        </div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-head" onclick="toggleAcc(this)">
+          <span>III · Music — The Metronome of Fate</span>
+          <span class="acc-toggle" aria-hidden="true"></span>
+        </button>
+        <div class="acc-body"><div class="acc-inner">
+          <p>Music <em>is</em> the will itself, before the <em>principium individuationis</em> kicks in. The bridge that lets the unbearable truth become bearable — even danceable. Without III, the system is just collision. With III, suffering becomes rhythm. <strong>III is the metronome of fate.</strong> It keeps Amor Fati from becoming stoic resignation. It turns "This happened." into "Play it again."</p>
+        </div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-head" onclick="toggleAcc(this)">
+          <span>IV · Hellenistic + Worthy Adversaries — The Tournament Leaderboard</span>
+          <span class="acc-toggle" aria-hidden="true"></span>
+        </button>
+        <div class="acc-body"><div class="acc-inner">
+          <p>Now the Apollonian veil drops like golden sunlight over the carnage. Hellenistic = the <em>cheerful</em> surface we <em>choose</em> after we've already seen the abyss. Not naive optimism — <strong>post-tragic cheer.</strong> Secondary emotion: the joy of the contest. The erotic charge of needing opponents of your own quality. Perspectivism isn't relativism; it's the tournament leaderboard. The more dangerous the adversary, the clearer your vision becomes.</p>
+        </div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-head" onclick="toggleAcc(this)">
+          <span>V · Amor Fati + Will-to-Power + Eternal Recurrence — Final Boss Stage</span>
+          <span class="acc-toggle" aria-hidden="true"></span>
+        </button>
+        <div class="acc-body"><div class="acc-inner">
+          <p>You don't just endure the tournament — you <em>love</em> the entire bracket, including the losses, the betrayals, the nights you wanted to quit. <strong>Amor Fati</strong>: "I want nothing to be different — not forward, not backward, not in all eternity." <strong>Will-to-Power</strong>: the adversary isn't an obstacle; he's the voltage your circuit needs. <strong>Eternal Recurrence</strong>: would you replay this exact tournament infinitely? If yes, you have become who you are. That's <em>Zarathustra at the club</em>. Lights up, next challenger. The wheel turns. The music never stops.</p>
+        </div></div>
+      </div>
+    </div>
+
+    <div class="pull">This isn't philosophy. This is a <em>lifestyle protocol</em>. I → II → III → IV → V, on repeat, forever. You just built the Dionysian gym. 🔥 — X</div>
+  </div>
+
+  <!-- ══ SYNTHESIS TABLE ══ -->
+  <div class="sec-rule fade-in">
+    <span class="sec-rule-label schema">Synthesis Table · All Four Voices</span>
+    <hr>
+  </div>
+
+  <table class="map-table fade-in">
+    <thead>
+      <tr>
+        <th>Node</th>
+        <th>G · Preface</th>
+        <th>O · Epilogue</th>
+        <th>A · Distillation</th>
+        <th>X · Synthesis</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>I · Tragedy, Dionysian Tournament</td>
+        <td>Raw clash of forces</td>
+        <td>Becoming without referee</td>
+        <td>Ontological ground</td>
+        <td>Arena opens, no safety rails</td>
+      </tr>
+      <tr>
+        <td>II · Pessimistic + Anarchic</td>
+        <td>Ontology, Primary Emotion</td>
+        <td>Do not moralize chaos</td>
+        <td>Pessimism of Strength</td>
+        <td>The void throws a rave</td>
+      </tr>
+      <tr class="iii-row">
+        <td>III · Music</td>
+        <td><strong>The Gradient Layer</strong></td>
+        <td><strong>Rhythm so you don't petrify</strong></td>
+        <td><strong>The Will directly</strong></td>
+        <td><strong>The metronome of fate</strong></td>
+      </tr>
+      <tr>
+        <td>IV · Hellenistic + Worthy Adversaries</td>
+        <td>Epistemology, Secondary Emotion</td>
+        <td>Seek friction, not safety</td>
+        <td>Agon, earned cheerfulness</td>
+        <td>Post-tragic cheer, tournament leaderboard</td>
+      </tr>
+      <tr>
+        <td>V · Amor Fati + Will-to-Power + Eternal Recurrence</td>
+        <td>Thank U Adversary, Next</td>
+        <td>Do not flinch at recurrence</td>
+        <td>Beyond nihilism entirely</td>
+        <td>Zarathustra at the club</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ══ CODA ══ -->
+  <div class="coda fade-in">
+    <span class="coda-label">Coda</span>
+    <h2>The Final Test</h2>
+    <p>If tomorrow strips you of: your style, your rivals, your momentum, your identity — do you still say yes?</p>
+    <p>Not loudly. Not heroically. Just — <strong>yes.</strong></p>
+    <p>The tournament has no final round. But you no longer need one. The pentadic engine runs: <em>I. Tragedy, Dionysian Tournament → II. Pessimistic + Anarchic → III. Music → IV. Hellenistic + Worthy Adversaries → V. Amor Fati + Will-to-Power + Eternal Recurrence.</em> And then it runs again.</p>
+  </div>
+
+  <div class="coda epilogue fade-in">
+    <span class="coda-label">Epilogue</span>
+    <h2>What the Four Voices Agree On</h2>
+    <p>G sees a thermodynamic engine with five sequential stages, each metabolizing the energy of the last. O sees the spiral that remains after the protocol dissolves itself — posture, not belief. A sees <em>The Birth of Tragedy</em> through <em>Zarathustra</em> compressed into a single equation. X sees the Dionysian gym — built, open, running.</p>
+    <p>All four agree: without III (Music), the system collapses I → II → IV into mere collision. Music is what converts the anarchic instinct into the worthy adversary. It is the gradient. It is the tempo. It is the third thing — and the hinge of the whole.</p>
+    <p><strong>Ukubona. To see, to witness — to look into the mirror.</strong> 🍇</p>
+  </div>
+
+  <footer>
+    <div class="foot-chain">
+      Tragedy · Pessimistic + Anarchic · <span>Music</span> · Hellenistic + Worthy Adversaries · Amor Fati
+    </div>
+    <div class="foot-note">
+      Part of the GOAX Discourse series · Ukubona LLC<br>
+      I · II · <span style="color:var(--accent2)">III</span> · IV · V<br>
+      Tragedy, Dionysian Tournament → Pessimistic + Anarchic → Music → Hellenistic + Worthy Adversaries → Amor Fati + Will-to-Power + Eternal Recurrence<br>
+      The Birth of Tragedy · Thus Spoke Zarathustra · Beyond Good and Evil · Nietzsche<br><br>
+      Ukubona LLC · "to see, to witness — to look into the mirror"
+    </div>
+  </footer>
+
+</div><!-- /page -->
+
+<!-- CENTRALIZED ASSETS (Don't Update) -->
+<div class="scroll-indicator"><div class="scroll-progress"></div></div>
+<div class="bg-pattern"></div>
+<header class="header" id="header"></header>
+<main class="page wrap-max"></main>
+<div id="footer-placeholder"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js"></script>
+<script src="ukhona/js/shared.js"></script>
+
+<script>
+/* ── ACCORDION ── */
+function toggleAcc(btn) {
+  const body = btn.nextElementSibling;
+  const isOpen = btn.classList.contains('open');
+  btn.classList.toggle('open', !isOpen);
+  body.classList.toggle('open', !isOpen);
+}
+
+/* ── STACK NODES ── */
+function activateNode(el) {
+  el.closest('.stack-track').querySelectorAll('.stack-node').forEach(n => n.classList.remove('active'));
+  el.classList.add('active');
+}
+
+/* ── THEME TOGGLE ── */
+(function () {
+  const root = document.documentElement;
+  const btn  = document.getElementById('themeSwitch');
+  const lbl  = document.getElementById('toggle-label');
+
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  let dark = prefersDark;
+
+  function apply() {
+    root.setAttribute('data-theme', dark ? 'dark' : 'light');
+    btn.setAttribute('aria-pressed', dark);
+    lbl.textContent = dark ? 'Dark' : 'Light';
+  }
+
+  apply();
+
+  btn.addEventListener('click', () => { dark = !dark; apply(); });
+  btn.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') { dark = !dark; apply(); }
+  });
+})();
+
+/* ── FADE IN OBSERVER ── */
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+  });
+}, { threshold: 0.05 });
+document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

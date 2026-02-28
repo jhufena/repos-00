@@ -1,0 +1,1293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>mRNA as Bridge — The Mobility Gradient — Ukubona LLC</title>
+
+<meta property="og:site_name" content="Ukubona LLC">
+<meta property="og:title" content="mRNA as Bridge — The Ontology–Epistemology Mobility Gradient">
+<meta property="og:description" content="DNA · mRNA · Polypeptide — The Central Dogma as Low-Cost Ontology–Epistemology Bridge">
+<meta property="og:type" content="article">
+
+<!-- CENTRALIZED ASSETS (Don't update) -->
+<link rel="icon" href="https://abikesa.github.io/favicon/assets/favicon-light.ico" type="image/x-icon">
+<link rel="icon" href="https://abikesa.github.io/favicon/assets/favicon-light.ico" media="(prefers-color-scheme: light)">
+<link rel="icon" href="https://abikesa.github.io/favicon/assets/favicon-dark.ico" media="(prefers-color-scheme: dark)">
+<link rel="preload" href="https://abikesa.github.io/logos/assets/ukubona-light.png" as="image">
+<link rel="preload" href="https://abikesa.github.io/logos/assets/ukubona-dark.png" as="image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+<link href="../css/variables.css?v=1.1" rel="stylesheet" />
+<link href="../css/head.css?v=1.1" rel="stylesheet" />
+<link href="../css/card.css?v=1.1" rel="stylesheet" />
+<link href="../css/footer.css" rel="stylesheet" />
+
+<script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+:root {
+  color-scheme: light dark;
+
+  --paper:      #f2ede6;
+  --ink:        #1a1008;
+  --ink2:       #332010;
+  --ink3:       #7a6050;
+  --rule:       #c4a882;
+  --rule2:      #e0d0bc;
+  --accent:     #8b1a1a;
+  --accent2:    #c04020;
+  --safe:       #2a4a2a;
+  --schema-bg:  #1a1008;
+  --schema-text:#e8d8b0;
+
+  --mono:    'IBM Plex Mono', monospace;
+  --serif:   'Source Serif 4', Georgia, serif;
+  --display: 'Playfair Display', Georgia, serif;
+
+  --toggle-bg:   #e0cdb0;
+  --toggle-knob: #1a1008;
+}
+
+[data-theme="dark"] {
+  --paper:      #0d0a14;
+  --ink:        #e8d890;
+  --ink2:       #c8b870;
+  --ink3:       #8a7850;
+  --rule:       #3a2a10;
+  --rule2:      #221808;
+  --accent:     #e04030;
+  --accent2:    #f08040;
+  --safe:       #508050;
+  --schema-bg:  #060408;
+  --schema-text:#d4c070;
+  --toggle-bg:  #1e1408;
+  --toggle-knob:#e8d890;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper:      #0d0a14;
+    --ink:        #e8d890;
+    --ink2:       #c8b870;
+    --ink3:       #8a7850;
+    --rule:       #3a2a10;
+    --rule2:      #221808;
+    --accent:     #e04030;
+    --accent2:    #f08040;
+    --safe:       #508050;
+    --schema-bg:  #060408;
+    --schema-text:#d4c070;
+    --toggle-bg:  #1e1408;
+    --toggle-knob:#e8d890;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 18px;
+  line-height: 1.9;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.theme-toggle {
+  position: fixed;
+  top: 1.2rem;
+  right: 1.5rem;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: var(--mono);
+  font-size: 0.5rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink3);
+}
+
+.toggle-switch {
+  position: relative;
+  width: 2.6rem;
+  height: 1.3rem;
+  background: var(--toggle-bg);
+  border: 1px solid var(--rule);
+  border-radius: 0;
+  cursor: pointer;
+  transition: background 0.25s;
+}
+
+.toggle-switch::after {
+  content: '';
+  position: absolute;
+  top: 0.2rem;
+  left: 0.2rem;
+  width: 0.75rem;
+  height: 0.75rem;
+  background: var(--toggle-knob);
+  transition: transform 0.25s ease;
+}
+
+[data-theme="dark"] .toggle-switch::after { transform: translateX(1.25rem); }
+
+.page {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 2.4rem 12rem;
+  position: relative;
+  z-index: 1;
+}
+
+.masthead {
+  padding: 8rem 0 4rem;
+  border-bottom: 4px double var(--ink);
+  margin-bottom: 5rem;
+  animation: drop 1.1s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.mast-eyebrow {
+  font-family: var(--mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: var(--ink3);
+  margin-bottom: 2.5rem;
+}
+
+.mast-numeral {
+  font-family: var(--display);
+  font-size: clamp(5rem, 18vw, 14rem);
+  font-weight: 900;
+  line-height: 0.85;
+  color: transparent;
+  -webkit-text-stroke: 2px var(--rule);
+  letter-spacing: -0.04em;
+  margin-bottom: -1rem;
+  user-select: none;
+  opacity: 0.5;
+}
+
+.mast-title {
+  font-family: var(--display);
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+  color: var(--ink);
+  margin-bottom: 1rem;
+}
+
+.mast-title em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--accent);
+}
+
+.mast-sub {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  color: var(--ink3);
+  letter-spacing: 0.12em;
+  line-height: 2.2;
+  margin-bottom: 3rem;
+}
+
+.cipher-grid {
+  margin-top: 3rem;
+  border-top: 1px solid var(--rule);
+}
+
+.cipher-line {
+  display: grid;
+  grid-template-columns: 2.4rem 1.6fr 1.8fr 0.6fr;
+  align-items: baseline;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid var(--rule2);
+  gap: 1rem;
+  transition: background 0.15s;
+}
+
+.cipher-line:hover { background: rgba(180,120,40,0.05); }
+
+.cl-roman {
+  font-family: var(--display);
+  font-size: 0.7rem;
+  font-style: italic;
+  color: var(--rule);
+}
+
+.cl-noun {
+  font-family: var(--display);
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  color: var(--ink2);
+}
+
+.cl-verb {
+  font-family: var(--serif);
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--ink);
+}
+
+.cl-verb .adv { color: var(--ink3); }
+
+.cl-key {
+  font-family: var(--mono);
+  font-size: 0.52rem;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+  text-align: right;
+  border: 1px solid var(--accent);
+  padding: 0.16rem 0.38rem;
+  justify-self: end;
+  align-self: center;
+}
+
+.cipher-line.active-iii .cl-noun,
+.cipher-line.active-iii .cl-verb { color: var(--accent); }
+.cipher-line.active-iii .cl-roman { color: var(--accent2); }
+.cipher-line.active-iii .cl-key { border-color: var(--accent2); color: var(--accent2); background: rgba(192,64,32,0.08); }
+
+.sec-rule {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 1.2rem;
+  margin: 5.5rem 0 2.5rem;
+}
+
+.sec-rule-label {
+  font-family: var(--mono);
+  font-size: 0.52rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  padding: 0.28rem 0.8rem;
+  border: 1px solid var(--ink);
+  color: var(--ink);
+}
+
+.sec-rule-label.g  { border-color: var(--safe);   color: var(--safe); }
+.sec-rule-label.o  { border-color: var(--ink);     color: var(--ink); }
+.sec-rule-label.a  { border-color: var(--ink3);    color: var(--ink3); }
+.sec-rule-label.x  { border-color: var(--accent);  color: var(--accent); }
+.sec-rule-label.schema {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+
+.sec-rule hr {
+  border: none;
+  border-top: 1px solid var(--rule);
+  width: 100%;
+}
+
+.voice-block { margin-bottom: 5rem; }
+
+.voice-byline {
+  font-family: var(--mono);
+  font-size: 0.54rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-bottom: 1.8rem;
+  padding-bottom: 0.7rem;
+  border-bottom: 1px solid var(--rule);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.voice-byline .sigil {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.7rem; height: 1.7rem;
+  font-family: var(--display);
+  font-size: 0.9rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.g-block .sigil { background: var(--safe);   color: var(--paper); }
+.o-block .sigil { background: var(--ink);    color: var(--paper); }
+.a-block .sigil { background: transparent;  color: var(--ink3); border: 1px solid var(--ink3); }
+.x-block .sigil { background: var(--accent); color: var(--paper); }
+
+.g-block .voice-byline { color: var(--safe); }
+.o-block .voice-byline { color: var(--ink2); }
+.a-block .voice-byline { color: var(--ink3); }
+.x-block .voice-byline { color: var(--accent); }
+
+.round-tab {
+  font-family: var(--mono);
+  font-size: 0.46rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.6rem;
+  border: 1px solid var(--rule);
+  color: var(--ink3);
+  display: inline-block;
+  margin-bottom: 1.4rem;
+}
+.g-block .round-tab { border-color: var(--safe); color: var(--safe); }
+.o-block .round-tab { border-color: var(--ink2); color: var(--ink2); }
+.a-block .round-tab { border-color: var(--ink3); color: var(--ink3); }
+.x-block .round-tab { border-color: var(--accent2); color: var(--accent2); }
+
+.prose { margin-bottom: 2rem; }
+.prose p { margin-bottom: 1.3rem; color: var(--ink2); }
+.prose p:last-child { margin-bottom: 0; }
+.prose strong { color: var(--ink); font-weight: 600; }
+.prose em { font-style: italic; }
+.prose ul { padding-left: 1.6rem; margin-bottom: 1.2rem; list-style: none; }
+.prose ul li { margin-bottom: 0.6rem; color: var(--ink3); position: relative; padding-left: 1rem; }
+.prose ul li::before { content: '—'; position: absolute; left: -0.5rem; color: var(--rule); }
+.prose li strong { color: var(--ink2); }
+.prose h2 {
+  font-family: var(--display);
+  font-size: 1rem; font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--ink);
+  margin: 3rem 0 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--rule);
+}
+.prose h3 {
+  font-family: var(--display);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--ink2);
+  margin: 2rem 0 0.8rem;
+}
+
+.lede {
+  font-family: var(--display);
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--ink2);
+  border-left: 3px solid var(--accent);
+  padding: 0.5rem 1.4rem;
+  margin-bottom: 1.8rem;
+  line-height: 1.7;
+}
+
+.pull {
+  font-family: var(--display);
+  font-size: 1.12rem;
+  font-style: italic;
+  color: var(--ink);
+  border-top: 2px solid var(--ink);
+  border-bottom: 1px solid var(--rule);
+  padding: 1.2rem 0;
+  margin: 2.5rem 0;
+  line-height: 1.65;
+}
+
+.accordion { margin: 1.8rem 0 2.5rem; }
+.acc-item { border-top: 1px solid var(--rule); }
+.acc-item:last-child { border-bottom: 1px solid var(--rule); }
+
+.acc-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0.9rem 0;
+  cursor: pointer;
+  user-select: none;
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink2);
+  background: none;
+  border: none;
+  text-align: left;
+  transition: color 0.15s;
+  gap: 1rem;
+}
+
+.acc-head:hover { color: var(--ink); }
+.acc-head.open  { color: var(--accent); }
+
+.acc-toggle {
+  flex-shrink: 0;
+  position: relative;
+  width: 1rem; height: 1rem;
+  display: flex; align-items: center; justify-content: center;
+}
+.acc-toggle::before,
+.acc-toggle::after {
+  content: '';
+  position: absolute;
+  background: currentColor;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+.acc-toggle::before { width: 9px; height: 1.5px; }
+.acc-toggle::after  { width: 1.5px; height: 9px; }
+.acc-head.open .acc-toggle::after { transform: rotate(90deg); opacity: 0; }
+
+.acc-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.acc-body.open { max-height: 8000px; }
+
+.acc-inner {
+  padding: 1.2rem 0 1.6rem;
+  font-size: 0.9rem;
+  color: var(--ink3);
+  line-height: 1.8;
+  border-top: 1px dashed var(--rule2);
+}
+.acc-inner p  { margin-bottom: 0.9rem; color: var(--ink3); }
+.acc-inner p:last-child { margin-bottom: 0; }
+.acc-inner strong { color: var(--ink2); }
+.acc-inner em { font-style: italic; }
+.acc-inner ul { padding-left: 1.4rem; margin-bottom: 0.9rem; list-style: none; }
+.acc-inner li { margin-bottom: 0.4rem; color: var(--ink3); position: relative; padding-left: 1rem; }
+.acc-inner li::before { content: '·'; position: absolute; left: 0; color: var(--rule); }
+.acc-inner li strong { color: var(--ink2); }
+.acc-inner h4 {
+  font-family: var(--display);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--ink2);
+  margin: 1.2rem 0 0.5rem;
+}
+
+.schema-block {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  line-height: 2.4;
+  background: var(--schema-bg);
+  color: var(--schema-text);
+  padding: 2rem 2.4rem;
+  margin-bottom: 2.5rem;
+  letter-spacing: 0.04em;
+  border-left: 3px solid var(--accent);
+}
+
+.schema-row { display: flex; gap: 1rem; align-items: baseline; flex-wrap: wrap; }
+.s-key  { color: #d4a050; min-width: 14rem; }
+.s-dot  { color: #4a3020; }
+.s-val  { color: #90b890; }
+.s-accent { color: #e06040; }
+
+.stack-track {
+  margin: 2.5rem 0;
+  border-left: 2px solid var(--rule);
+  padding-left: 2.2rem;
+}
+
+.stack-node {
+  padding: 1.2rem 1.5rem;
+  margin-bottom: 0.6rem;
+  border: 1px solid var(--rule2);
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  position: relative;
+}
+
+.stack-node::before {
+  content: '';
+  position: absolute;
+  left: -2.5rem; top: 50%;
+  transform: translateY(-50%);
+  width: 0.55rem; height: 0.55rem;
+  background: var(--paper);
+  border: 1.5px solid var(--rule);
+  transition: all 0.2s;
+}
+
+.stack-node.active { border-color: var(--accent); background: rgba(139,26,26,0.06); }
+.stack-node.active::before { background: var(--accent); border-color: var(--accent); }
+
+.stack-node.iii-node { border-style: dashed; border-color: var(--accent2); }
+.stack-node.iii-node.active { border-style: solid; background: rgba(192,64,32,0.1); }
+.stack-node.iii-node::before { border-color: var(--accent2); }
+.stack-node.iii-node.active::before { background: var(--accent2); }
+
+.sn-head {
+  display: flex; gap: 1.2rem; align-items: baseline;
+  margin-bottom: 0.4rem; flex-wrap: wrap;
+}
+
+.sn-label {
+  font-family: var(--display);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.sn-roman {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 0.8rem;
+  color: var(--rule);
+}
+
+.sn-name {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 0.88rem;
+  color: var(--ink3);
+}
+
+.sn-body {
+  font-size: 0.88rem;
+  color: var(--rule);
+  line-height: 1.65;
+  transition: color 0.2s;
+}
+
+.stack-node.active .sn-body { color: var(--ink3); }
+
+.map-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+  margin: 2.5rem 0;
+}
+.map-table th {
+  font-family: var(--mono);
+  font-size: 0.5rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  padding: 0.8rem 1rem;
+  border-bottom: 2px solid var(--ink);
+  text-align: left;
+  color: var(--ink3);
+}
+.map-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--rule2);
+  vertical-align: top;
+  line-height: 1.55;
+  color: var(--ink3);
+}
+.map-table td:first-child {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  color: var(--accent);
+  white-space: nowrap;
+  letter-spacing: 0.06em;
+}
+.map-table tr.iii-row td { background: rgba(139,26,26,0.05); }
+.map-table tr.iii-row td:first-child { color: var(--accent2); }
+.map-table tr:hover td { background: rgba(180,120,40,0.04); }
+.map-table tr:last-child td { border-bottom: 2px solid var(--ink); }
+
+.formula-block {
+  background: var(--schema-bg);
+  color: var(--schema-text);
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  padding: 2rem 2.4rem;
+  margin: 2.5rem 0;
+  line-height: 2.5;
+  letter-spacing: 0.06em;
+  border-right: 3px solid var(--accent2);
+}
+
+.f-eq { color: #d4a050; }
+.f-plus { color: #4a3020; margin: 0 0.5em; }
+.f-result { color: var(--accent2); }
+.f-comment { color: #606060; font-size: 0.6rem; letter-spacing: 0.2em; }
+
+.danger-block {
+  border: 1px solid var(--accent2);
+  padding: 1.4rem 1.8rem;
+  margin: 2rem 0;
+  font-size: 0.88rem;
+  color: var(--ink3);
+  line-height: 1.8;
+  position: relative;
+}
+.danger-block::before {
+  content: '⚠ CAUTION';
+  font-family: var(--mono);
+  font-size: 0.46rem;
+  letter-spacing: 0.4em;
+  color: var(--accent2);
+  position: absolute;
+  top: -0.65rem;
+  left: 1rem;
+  background: var(--paper);
+  padding: 0 0.5rem;
+}
+.danger-block strong { color: var(--accent2); }
+
+.question-block {
+  border-left: 3px solid var(--ink3);
+  padding: 1rem 1.4rem;
+  margin: 2rem 0;
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--ink3);
+  line-height: 1.7;
+}
+
+.coda {
+  border: 2px solid var(--ink);
+  padding: 3.2rem 3.8rem;
+  margin: 6rem 0;
+  position: relative;
+}
+
+.coda-label {
+  position: absolute;
+  top: -0.75rem; left: 2rem;
+  font-family: var(--mono);
+  font-size: 0.48rem;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  background: var(--paper);
+  padding: 0 0.75rem;
+  color: var(--ink);
+}
+
+.coda h2 {
+  font-family: var(--display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  font-style: italic;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  margin-bottom: 1.4rem;
+}
+
+.coda p { color: var(--ink2); margin-bottom: 1.1rem; line-height: 1.85; }
+.coda p:last-child { margin-bottom: 0; }
+.coda strong { color: var(--ink); }
+.coda em { font-style: italic; }
+
+.coda.epilogue { border-color: var(--accent); }
+.coda.epilogue .coda-label { color: var(--accent); }
+.coda.epilogue h2 { color: var(--accent); }
+
+footer {
+  border-top: 3px double var(--ink);
+  padding: 3rem 0 7rem;
+}
+.foot-chain {
+  font-family: var(--mono);
+  font-size: 0.54rem;
+  letter-spacing: 0.28em;
+  color: var(--ink3);
+  margin-bottom: 0.8rem;
+}
+.foot-chain span { color: var(--accent2); }
+.foot-note {
+  font-family: var(--mono);
+  font-size: 0.48rem;
+  letter-spacing: 0.1em;
+  color: var(--ink3);
+  line-height: 2.5;
+}
+.foot-note a { color: var(--ink3); text-decoration: none; }
+.foot-note a:hover { color: var(--accent); }
+
+.fade-in { opacity: 0; transform: translateY(14px); transition: opacity 0.65s ease, transform 0.65s ease; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+@keyframes drop {
+  from { opacity: 0; transform: translateY(-16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 640px) {
+  .mast-numeral { font-size: 6rem; }
+  .mast-title   { font-size: 1.9rem; }
+  .cipher-line  { grid-template-columns: 1.5rem 1fr; gap: 0.2rem; }
+  .cl-verb, .cl-key { grid-column: 2; }
+  .coda         { padding: 2rem 1.6rem; }
+  .formula-block { padding: 1.5rem; }
+  .theme-toggle { top: 0.7rem; right: 0.9rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── THEME TOGGLE ── -->
+<div class="theme-toggle" aria-label="Toggle dark/light mode">
+  <span id="toggle-label">Light</span>
+  <div class="toggle-switch" id="themeSwitch" role="button" tabindex="0" aria-pressed="false"></div>
+</div>
+
+<div class="page">
+
+  <!-- ══ MASTHEAD ══ -->
+  <header class="masthead">
+    <br><br><br>
+    <div class="mast-eyebrow">GOAX Discourse · mRNA as Mobility Bridge · Ukubona LLC</div>
+    <div class="mast-numeral" aria-hidden="true">III</div>
+    <h1 class="mast-title">
+      mRNA as the Structural Bridge,<br>
+      <em>The Central Dogma as Ontology–Epistemology Mobility Gradient</em>
+    </h1>
+    <p class="mast-sub">
+      // Four voices. One corrected spine. The second messenger was tempo; mRNA is architecture.<br>
+      // GOAX: G (Gemini) · O (OpenAI) · A (Anthropic) · X (xAI)<br>
+      // Verbatim transcript — Round IV
+    </p>
+
+    <div class="cipher-grid">
+      <div class="cipher-line">
+        <span class="cl-roman">I</span>
+        <span class="cl-noun">DNA</span>
+        <span class="cl-verb">Locked, <span class="adv">Immovably</span></span>
+        <span class="cl-key">ONTOLOGY</span>
+      </div>
+      <div class="cipher-line active-iii">
+        <span class="cl-roman">II</span>
+        <span class="cl-noun">mRNA / Digital Twin</span>
+        <span class="cl-verb">Transporting, <span class="adv">Structurally</span></span>
+        <span class="cl-key">BRIDGE</span>
+      </div>
+      <div class="cipher-line">
+        <span class="cl-roman">III</span>
+        <span class="cl-noun">Ribosome / ER</span>
+        <span class="cl-verb">Translating, <span class="adv">Materially</span></span>
+        <span class="cl-key">AGON</span>
+      </div>
+      <div class="cipher-line">
+        <span class="cl-roman">IV</span>
+        <span class="cl-noun">Polypeptide / Vesicle</span>
+        <span class="cl-verb">Deploying, <span class="adv">Epistemically</span></span>
+        <span class="cl-key">EFFECT</span>
+      </div>
+      <div class="cipher-line">
+        <span class="cl-roman">V</span>
+        <span class="cl-noun">Secreted Protein / p·v/$</span>
+        <span class="cl-verb">Acting, <span class="adv">Absolutely</span></span>
+        <span class="cl-key">AMOR FATI</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ══ SCHEMA ══ -->
+  <div class="sec-rule fade-in">
+    <span class="sec-rule-label schema">Opening Schema · The Corrected Bridge</span>
+    <hr>
+  </div>
+
+  <div class="schema-block fade-in">
+    <div class="schema-row"><span class="s-key">DNA (Nucleus-Locked Ontology)</span><span class="s-dot">·</span><span class="s-val">Fixed Archive · Cannot Leave · Master Copy Protected · Zero Mobility</span></div>
+    <div class="schema-row"><span class="s-key s-accent">mRNA (The Structural Bridge)</span><span class="s-dot">·</span><span class="s-val s-accent">Portable Transcript · Exits via Nuclear Pore · Carries Semantic Content · Degrades</span></div>
+    <div class="schema-row"><span class="s-key">Ribosome / ER (Translation Layer)</span><span class="s-dot">·</span><span class="s-val">Folds Information into 3D Shape · The Manufacturing Agon · DevOps Pipeline</span></div>
+    <div class="schema-row"><span class="s-key">Polypeptide via Vesicles (Actuation)</span><span class="s-dot">·</span><span class="s-val">Mobile Effector · ER → Golgi → Secretion · Deployable Structure · Amor Fati</span></div>
+    <div class="schema-row"><span class="s-key">The Two Bridge Types (Separated)</span><span class="s-dot">·</span><span class="s-val">cAMP = Dynamic / Gradient · mRNA = Instructional / Constructive · Biology does not conflate them</span></div>
+  </div>
+
+  <!-- ══ G ══ -->
+  <div class="sec-rule fade-in">
+    <span class="sec-rule-label g">G · Genesis · The Synthesist</span>
+    <hr>
+  </div>
+
+  <div class="voice-block g-block fade-in">
+    <div class="voice-byline">
+      <span class="sigil">G</span>
+      G · The "Information-Energy" Bridge
+    </div>
+
+    <span class="round-tab">The Structural Messenger vs. The Kinetic Messenger</span>
+
+    <div class="prose">
+      <p class="lede">If cAMP (the second messenger) is the <strong>tempo</strong> of the moment, mRNA is the <strong>architecture of the bridge</strong>.</p>
+      <p>DNA is the "Locked Room" of the cell. It is the high-security, immobile library of the organism's ontology. It cannot leave the nucleus. Polypeptides (the proteins) are the workers — the "Effect" that actually travels to the Golgi, the ER, or outside the cell to change the world. <strong>mRNA is the structural bridge that makes the immovable (DNA) actionable (Protein).</strong></p>
+    </div>
+
+    <table class="map-table">
+      <thead>
+        <tr>
+          <th>Biological Layer</th>
+          <th>Cybernetic Equivalent (The Twin)</th>
+          <th>GOAX Stage</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>DNA (Locked Ontology)</td>
+          <td>Historical Hard Data / Legacy Code</td>
+          <td>II (The Given)</td>
+        </tr>
+        <tr class="iii-row">
+          <td>mRNA (The Bridge)</td>
+          <td><strong>The Live Digital Twin / Simulation Code</strong></td>
+          <td><strong>III (The Gradient)</strong></td>
+        </tr>
+        <tr>
+          <td>Ribosome / ER (Translation)</td>
+          <td>Compute / Execution Layer</td>
+          <td>IV (The Agon)</td>
+        </tr>
+        <tr>
+          <td>Polypeptide (Action)</td>
+          <td>The Physical Actuation / Manifestation</td>
+          <td>V (The Effect)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="accordion">
+      <div class="acc-item">
+        <button class="acc-head" onclick="toggleAcc(this)">
+          <span>1 · Transportability — The Low-Cost Bridge</span>
+          <span class="acc-toggle" aria-hidden="true"></span>
+        </button>
+        <div class="acc-body"><div class="acc-inner">
+          <p>DNA is too heavy and sensitive to move. mRNA is a "low-cost" lightweight transcript. Similarly, a physical factory is too "heavy" to move into a brainstorming meeting; the Digital Twin is the lightweight "mRNA" that brings the factory's blueprint into the room. <strong>Bits are exponentially cheaper than atoms. Transcripts are exponentially cheaper than chromosomes.</strong></p>
+        </div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-head" onclick="toggleAcc(this)">
+          <span>2 · Safety — The Apollonian Shield</span>
+          <span class="acc-toggle" aria-hidden="true"></span>
+        </button>
+        <div class="acc-body"><div class="acc-inner">
+          <p>If you "read" DNA directly at the site of action, you risk damaging the master copy. By using mRNA as a bridge, the cell protects its core ontology. In engineering, the Digital Twin protects the physical asset — you "stress" the twin, not the turbine. The bridge is Apollonian precisely because it absorbs the trauma <em>before</em> it reaches the archive.</p>
+        </div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-head" onclick="toggleAcc(this)">
+          <span>3 · Transient Existence — The Phosphodiesterase Answer</span>
+          <span class="acc-toggle" aria-hidden="true"></span>
+        </button>
+        <div class="acc-body"><div class="acc-inner">
+          <p>mRNA is designed to degrade. It isn't a permanent statue; it's a temporary instruction. This is the phosphodiesterase answer we were looking for in Round II. A Digital Twin shouldn't be a permanent, fossilized model — it should be a transient "message" that updates and dissolves as the reality changes. <strong>mRNA half-life = sensor freshness.</strong> When both die, the bridge collapses into a frozen hallucination.</p>
+        </div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-head" onclick="toggleAcc(this)">
+          <span>4 · The ER/Vesicle Logistics — Actuation as Amor Fati</span>
+          <span class="acc-toggle" aria-hidden="true"></span>
+        </button>
+        <div class="acc-body"><div class="acc-inner">
+          <p>It's not enough to have the "Music" (mRNA/Twin); you need the machinery to fold that information into a 3D shape (Protein) and ship it to the front lines (Vesicles).</p>
+          <ul>
+            <li><strong>The ER / Golgi</strong> = The manufacturing plant or the DevOps pipeline.</li>
+            <li><strong>Vesicles</strong> = The delivery systems, the API calls, or the actual mechanical actuators in the field.</li>
+          </ul>
+          <p>The polypeptide doesn't just exist — it <em>travels</em>. ER → Golgi → secretion. This is the mobility gradient in its final form: DNA (zero) → mRNA (medium) → Protein (high). Ontology to epistemology is a gradient of mobility, not merely of abstraction.</p>
+        </div></div>
+      </div>
+    </div>
+
+    <div class="pull">The Digital Twin as "Operational mRNA" — it is the only way for the "Inert Knowledge" of a system to become "Kinetic Action." Without the transcript, the DNA is just a dead library and the Ribosome has nothing to build. You've successfully moved the model from <em>Signal Transduction</em> (fast, chemical) to <em>Gene Expression</em> (structural, lasting). — G</div>
+  </div>
+
+  <!-- ══ O ══ -->
+  <div class="sec-rule fade-in">
+    <span class="sec-rule-label o">O · Ontology · The Mythologist</span>
+    <hr>
+  </div>
+
+  <div class="voice-block o-block fade-in">
+    <div class="voice-byline">
+      <span class="sigil">O</span>
+      O · The Central Dogma as Mobility Gradient
+    </div>
+
+    <span class="round-tab">Information Embodiment, Not Signal Dynamics</span>
+
+    <div class="prose">
+      <p class="lede">Yes. And that's actually a <em>cleaner</em> bridge than the second-messenger analogy. You've moved from <strong>signal dynamics</strong> to <strong>information embodiment</strong>. That's a different layer.</p>
+    </div>
+
+    <div class="stack-track">
+      <div class="stack-node" onclick="activateNode(this)">
+        <div class="sn-head"><span class="sn-roman">DNA</span><span class="sn-label">Fixed Archive</span><span class="sn-name">Ontology</span></div>
+        <p class="sn-body">Stored in nucleus. Physically constrained. Extremely stable. Not mobile. Does not diffuse. Does not pulse. Does not oscillate. It is ontology — full stop.</p>
+      </div>
+      <div class="stack-node iii-node active" onclick="activateNode(this)">
+        <div class="sn-head"><span class="sn-roman">mRNA</span><span class="sn-label">Portable Instruction</span><span class="sn-name">The Bridge</span></div>
+        <p class="sn-body">Transcribed copy. Exported through nuclear pores. Mobile in cytoplasm. Short-lived. Carries semantic content — not "how much" but "what to build." A controlled leak of ontology into action space.</p>
+      </div>
+      <div class="stack-node" onclick="activateNode(this)">
+        <div class="sn-head"><span class="sn-roman">Polypeptide</span><span class="sn-label">Operational Embodiment</span><span class="sn-name">The Effect</span></div>
+        <p class="sn-body">Synthesized at ribosome. Can embed in membrane. Can enter ER. Can be packaged in vesicles. Can be secreted outside cell. Maximum mobility. The thing that goes and does things in the world.</p>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="acc-item">
+        <button class="acc-head" onclick="toggleAcc(this)">
+          <span>Two Orthogonal Bridge Types — Biology Does Not Conflate Them</span>
+          <span class="acc-toggle" aria-hidden="true"></span>
+        </button>
+        <div class="acc-body"><div class="acc-inner">
+          <h4>A) Second Messenger (cAMP, Ca²⁺) — Dynamic Bridge</h4>
+          <ul>
+            <li>Encodes intensity</li>
+            <li>Encodes time / frequency</li>
+            <li>No semantic content</li>
+            <li>Short half-life</li>
+            <li>Pure modulation — Music ≈ this</li>
+          </ul>
+          <h4>B) mRNA — Instructional Bridge</h4>
+          <ul>
+            <li>Encodes sequence</li>
+            <li>Carries semantic template</li>
+            <li>Medium half-life</li>
+            <li>Enables material construction</li>
+            <li>Digital Twin (as compiled artifact) ≈ this</li>
+          </ul>
+          <p>Most philosophical analogies collapse these two. Biology separates them with a modulation layer (fast, dynamic) and a construction layer (slower, content-bearing). That is not trivial.</p>
+        </div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-head" onclick="toggleAcc(this)">
+          <span>The Digital Twin as Container Image, Not Gradient</span>
+          <span class="acc-toggle" aria-hidden="true"></span>
+        </button>
+        <div class="acc-body"><div class="acc-inner">
+          <p>If DNA = fixed codebase, and protein = deployed runtime, then mRNA is a <strong>compiled, portable, executable instruction packet</strong>. That's closer to a container image than to a gradient. Very different from second messenger logic.</p>
+          <p>Music ≈ second messenger (tempo, gradient, oscillation). mRNA ≠ music. mRNA is closer to: a script, a score, a blueprint fragment. Music doesn't encode structure. mRNA does. The digital twin, when versioned and shipped to a boardroom, is mRNA. When it's the live sensor feed oscillating in real time, it is cAMP.</p>
+        </div></div>
+      </div>
+    </div>
+
+    <div class="danger-block">
+      <p>Second messengers regulate transcription factors that regulate mRNA production. So: <strong>gradient layer controls instruction layer, which then controls embodiment.</strong> That hierarchy matters. The cAMP/Music layer is upstream of the mRNA/Digital Twin layer. One decides whether to build; the other carries the blueprint. Confusing them collapses the architecture.</p>
+    </div>
+
+    <div class="pull">mRNA is not just mobility. It's <em>controlled materialization of potential</em>. DNA never leaves. Protein never sees the archive. mRNA is the courier. And crucially — it degrades. Which prevents permanent transcriptional tyranny. — O</div>
+  </div>
+
+  <!-- ══ A ══ -->
+  <div class="sec-rule fade-in">
+    <span class="sec-rule-label a">A · Adversary · The Physicist</span>
+    <hr>
+  </div>
+
+  <div class="voice-block a-block fade-in">
+    <div class="voice-byline">
+      <span class="sigil">A</span>
+      A · The Unresolved Conflation
+    </div>
+
+    <span class="round-tab">What the Original Page Left Open</span>
+
+    <div class="prose">
+      <p class="lede">The original GOAX page treats III as a single layer. But biology actually separates two orthogonal bridge types that O named. The page gestures at this in the epigenetic section but never cleanly splits the two.</p>
+      <p>What the correction exposes: the mDT is more like <strong>cAMP</strong> (tempo, oscillation, gradient — fast and contentless) <em>or</em> more like <strong>mRNA</strong> (semantic, portable, degradable, constructive) depending on which <em>phase</em> of the twin's lifecycle you're in.</p>
+    </div>
+
+    <table class="map-table">
+      <thead>
+        <tr>
+          <th>Phase</th>
+          <th>Biological Analog</th>
+          <th>Function Type</th>
+          <th>What It Carries</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Live sensor feed</td>
+          <td>cAMP / Ca²⁺ oscillation</td>
+          <td>Dynamic gradient</td>
+          <td>Intensity, tempo, frequency</td>
+        </tr>
+        <tr class="iii-row">
+          <td><strong>Versioned model snapshot</strong></td>
+          <td><strong>mRNA transcript</strong></td>
+          <td><strong>Instructional bridge</strong></td>
+          <td><strong>Semantic content, blueprint</strong></td>
+        </tr>
+        <tr>
+          <td>Boardroom simulation</td>
+          <td>Ribosome / ER translation</td>
+          <td>Constructive agon</td>
+          <td>3D folded decision</td>
+        </tr>
+        <tr>
+          <td>Physical actuation</td>
+          <td>Secreted protein / vesicle</td>
+          <td>Deployed effect</td>
+          <td>Amor Fati in matter-space</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="accordion">
+      <div class="acc-item">
+        <button class="acc-head" onclick="toggleAcc(this)">
+          <span>The Mobility Gradient — Zero → Medium → High</span>
+          <span class="acc-toggle" aria-hidden="true"></span>
+        </button>
+        <div class="acc-body"><div class="acc-inner">
+          <p>The mobility gradient runs: <strong>zero → medium → high</strong>. DNA (none), mRNA (moderate, nuclear pore to cytoplasm), protein (maximum, ER, Golgi, vesicles, extracellular). That's a cleaner ontology-epistemology bridge than anything cAMP gives you, because cAMP never leaves the cell interior and carries no blueprint.</p>
+          <p>The nucleus is the locked room. mRNA is the only legal exit. Polypeptides are what eventually travel into the world to do things. This maps directly: fixed ontology → portable instruction → mobile effect. The gradient is not of intensity but of <em>spatial freedom</em>.</p>
+        </div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-head" onclick="toggleAcc(this)">
+          <span>What This Means for the mDT — The Phase Distinction</span>
+          <span class="acc-toggle" aria-hidden="true"></span>
+        </button>
+        <div class="acc-body"><div class="acc-inner">
+          <p>The digital twin is not one thing — it is two, depending on which timescale you're watching. As real-time sensor feed it is cAMP: oscillating, contentless, gradient-only. As a versioned snapshot shipped to a board or a simulation run, it is mRNA: semantic, portable, temporarily stable, carrying a blueprint that enables construction.</p>
+          <p>The failure mode is conflating them. A live feed treated as a frozen blueprint = model drift (mRNA that won't degrade). A snapshot treated as real-time truth = hallucination (cAMP frozen mid-oscillation). The phosphodiesterase and the exonuclease are different enzymes for a reason.</p>
+        </div></div>
+      </div>
+    </div>
+
+    <div class="formula-block">
+      <div class="schema-row"><span class="f-eq">Revised Architecture</span></div>
+      <div class="schema-row"><span class="f-eq">Fixed Ontology (DNA)</span><span class="f-plus">→</span><span class="f-result">Portable Instruction (mRNA / mDT snapshot)</span><span class="f-plus">→</span><span class="f-eq">Translation Agon (Ribosome / Board)</span><span class="f-plus">→</span><span class="f-eq">Mobile Effect (Protein / Actuation)</span></div>
+      <div class="schema-row"><span class="f-comment">// The gradient bridge (cAMP/Music) is upstream — it decides whether to transcribe</span></div>
+      <div class="schema-row"><span class="f-comment">// The instruction bridge (mRNA/mDT) carries what to build once the decision is made</span></div>
+      <div class="schema-row"><span class="f-comment">// These are orthogonal. Conflating them is the original page's open wound.</span></div>
+    </div>
+
+    <div class="pull">The page needed a second layer. cAMP governs the decision to transcribe. mRNA carries the transcript. The mDT is not one or the other — it is both, at different timescales. Biology keeps them separate. So should the architecture. — A</div>
+  </div>
+
+  <!-- ══ X ══ -->
+  <div class="sec-rule fade-in">
+    <span class="sec-rule-label x">X · Synthesis · The Systematist</span>
+    <hr>
+  </div>
+
+  <div class="voice-block x-block fade-in">
+    <div class="voice-byline">
+      <span class="sigil">X</span>
+      X · The Three-Tier Architecture
+    </div>
+
+    <span class="round-tab">Gradient Controls Instruction Controls Embodiment</span>
+
+    <div class="prose">
+      <p>mRNA bridges the flow of genetic information from the relatively immobile DNA (sequestered in the nucleus) to the dynamic, mobile polypeptides that can be synthesized, folded, and transported via the endoplasmic reticulum, Golgi apparatus, vesicles, and beyond. This isn't an upgrade to the second-messenger analogy — it is a <em>different layer</em> of biology entirely, mapped onto a different layer of the digital twin lifecycle.</p>
+    </div>
+
+    <div class="accordion">
+      <div class="acc-item">
+        <button class="acc-head" onclick="toggleAcc(this)">
+          <span>The Central Dogma Step by Step — mRNA Mechanics</span>
+          <span class="acc-toggle" aria-hidden="true"></span>
+        </button>
+        <div class="acc-body"><div class="acc-inner">
+          <p><strong>1. DNA's Immobility:</strong> DNA is a massive, double-stranded molecule confined to the nucleus for protection and stability. It can't leave without risking damage or degradation. It is the ontological core: the raw blueprint of existence.</p>
+          <p><strong>2. Transcription — Generating the Messenger:</strong> In response to a signal (hormones or cellular needs triggering transcription factors), RNA polymerase reads a DNA gene and synthesizes a single-stranded mRNA copy. This mRNA is processed (capped, spliced, poly-A tailed) and exported through nuclear pores into the cytoplasm. It is lightweight and transient — designed for mobility, unlike DNA.</p>
+          <p><strong>3. Translation — Bridging to Polypeptides:</strong> In the cytoplasm, mRNA binds to ribosomes, often on the rough ER, where tRNAs deliver amino acids to assemble polypeptides based on the mRNA sequence. The nascent polypeptide chain emerges, folds (with chaperones), and enters post-translational processing.</p>
+          <p><strong>4. ER and Vesicles for Mobility:</strong> If the protein is secretory or membrane-bound, it's co-translationally inserted into the ER lumen. The ER folds and modifies it (glycosylation), then packages it into vesicles that bud off and traffic to the Golgi for further sorting. Vesicles (COPII-coated for ER-to-Golgi, clathrin-coated for exocytosis) enable transport — proteins can travel intracellularly or be secreted extracellularly, acting as mobile effectors.</p>
+        </div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-head" onclick="toggleAcc(this)">
+          <span>Remapping the Full Pentad — mRNA Lens</span>
+          <span class="acc-toggle" aria-hidden="true"></span>
+        </button>
+        <div class="acc-body"><div class="acc-inner">
+          <p><strong>I · Signal / Tragedy:</strong> External cue (hormone / transcription factor binding DNA promoter) — raw tragedy initiating the cascade. Physical substrate, chaotic entropy.</p>
+          <p><strong>II · Receptor / Ontology:</strong> DNA + RNA polymerase complex — ontological encounter, binding and initiating transcription. Sensor data / Ouranos boundary.</p>
+          <p><strong>III · mRNA / Digital Twin:</strong> The bridge — transduces immobile DNA code into mobile, patterned transcript. Bypasses nuclear membrane, encodes semantic content. The versioned snapshot shipped to a boardroom.</p>
+          <p><strong>IV · Ribosome / Agon:</strong> Epistemic contest, translating mRNA into polypeptide amid cellular noise. UI/UX / dashboard / board — stress-testing the simulation before matter-space commits.</p>
+          <p><strong>V · Protein via Vesicles / Amor Fati:</strong> Mobile via ER / vesicles, enabling cellular response. Optimized ecosystem, p/$ — loops back. Gene expression becomes blueprint. Eternal recurrence.</p>
+        </div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-head" onclick="toggleAcc(this)">
+          <span>Thermodynamic Efficiency — Why mRNA Is the Right Analog</span>
+          <span class="acc-toggle" aria-hidden="true"></span>
+        </button>
+        <div class="acc-body"><div class="acc-inner">
+          <p>mRNA is low-cost — synthesized on demand, degraded quickly (half-life minutes to hours via exonucleases), allowing rapid response without rewriting DNA. It encodes not just sequence but timing (via stability signals), preventing overproduction leading to misfolding or aggregation.</p>
+          <p>One DNA template → multiple mRNA copies → exponential protein output. This is Landauer's logic in biology: one physical reality → millions of simulated iterations at near-zero energy tax. The transcript is the low-cost bridge because <strong>information is exponentially cheaper than matter</strong> — whether the information is RNA or bits.</p>
+          <p><strong>Overabundant mRNA → protein overload (cancer).</strong> Model drift = the digital twin equivalent: frozen, permanent, hallucinating. The exonuclease and the sensor-staleness check are the same solution in different substrates.</p>
+        </div></div>
+      </div>
+    </div>
+
+    <div class="formula-block">
+      <div class="schema-row"><span class="f-eq">The Three-Tier Architecture</span></div>
+      <div class="schema-row"><span class="f-eq">Gradient Layer (cAMP · Music · Live feed)</span><span class="f-plus">↓ controls</span></div>
+      <div class="schema-row"><span class="f-result">Instruction Layer (mRNA · mDT snapshot · Versioned model)</span><span class="f-plus">↓ enables</span></div>
+      <div class="schema-row"><span class="f-eq">Embodiment Layer (Protein · Actuation · Vesicle logistics)</span></div>
+      <div class="schema-row"><span class="f-comment">// sensor-DNA → API-mRNA → AI-polypeptides</span></div>
+      <div class="schema-row"><span class="f-comment">// Gradient decides whether to build. Instruction carries what to build. Embodiment builds it.</span></div>
+    </div>
+
+    <div class="pull">The model scales from a single cell (cAMP), to the human psyche (Music), to planetary infrastructure (Digital Twins) — but only if you honor the architecture that biology took 3.8 billion years to separate. Two bridge types. Not one. — X</div>
+  </div>
+
+  <!-- ══ SYNTHESIS TABLE ══ -->
+  <div class="sec-rule fade-in">
+    <span class="sec-rule-label schema">Synthesis Table · The Two Bridge Types · Separated</span>
+    <hr>
+  </div>
+
+  <table class="map-table fade-in">
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Second Messenger (cAMP / Ca²⁺)</th>
+        <th>mRNA / Digital Twin Snapshot</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Bridge type</td>
+        <td>Dynamic / Gradient</td>
+        <td>Instructional / Constructive</td>
+      </tr>
+      <tr>
+        <td>Content</td>
+        <td>None — encodes intensity only</td>
+        <td>Semantic — "what to build"</td>
+      </tr>
+      <tr>
+        <td>Timescale</td>
+        <td>Seconds to minutes</td>
+        <td>Minutes to hours</td>
+      </tr>
+      <tr class="iii-row">
+        <td>mDT equivalent</td>
+        <td><strong>Live sensor feed / real-time oscillation</strong></td>
+        <td><strong>Versioned model / boardroom snapshot</strong></td>
+      </tr>
+      <tr>
+        <td>Degradation enzyme</td>
+        <td>Phosphodiesterase</td>
+        <td>Exonuclease (5′→3′ degradation)</td>
+      </tr>
+      <tr>
+        <td>Failure mode</td>
+        <td>Model drift — stops ingesting reality</td>
+        <td>Transcriptional tyranny — won't degrade</td>
+      </tr>
+      <tr>
+        <td>Philosophical analog</td>
+        <td>Music — tempo, rhythm, bypass intellect</td>
+        <td>Score / Blueprint — encodes structure</td>
+      </tr>
+      <tr>
+        <td>Mobility gradient</td>
+        <td>Intracellular only — never leaves cell</td>
+        <td>Nuclear pore → cytoplasm → ribosome</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ══ CODA ══ -->
+  <div class="coda fade-in">
+    <span class="coda-label">Coda</span>
+    <h2>What the Correction Establishes</h2>
+    <p>The original GOAX page identified III as the hinge, the gradient, the messenger. That was correct structurally. But it used the wrong biological analog — second messengers (cAMP, Ca²⁺) — which carry no semantic content and never leave the cell interior.</p>
+    <p>mRNA is a different class of bridge entirely. It carries <strong>what to build</strong>, not merely <strong>how intensely</strong>. It exits the nucleus through a dedicated pore. It is degraded on a different schedule. And the polypeptides it produces are the first truly mobile entities in the chain — traveling via ER, Golgi, and vesicles to act in the world.</p>
+    <p>The mobility gradient is the key insight: <strong>DNA (zero) → mRNA (medium) → Protein (high)</strong>. Ontology to epistemology is a gradient of spatial freedom, not merely of abstraction. The digital twin, as versioned artifact, is mRNA. The digital twin, as live sensor feed, is cAMP. Biology uses different enzymes to degrade each. So should the architecture.</p>
+    <p><strong>Ukubona. To see, to witness — to look into the mirror.</strong> 🧬</p>
+  </div>
+
+  <div class="coda epilogue fade-in">
+    <span class="coda-label">Epilogue</span>
+    <h2>The Exonuclease Is Also Already in the Architecture</h2>
+    <p>G sees the "Information-Energy" bridge — the mRNA as the structural messenger that makes the immovable actionable, with the ER/Golgi/vesicle logistics as the Amor Fati of deployment. O sees the mobility gradient — DNA (none), mRNA (moderate), protein (maximum) — and the clean separation of modulation layer from construction layer. A sees the phase distinction — the mDT is cAMP when live, mRNA when versioned, and the failure modes are different in each phase. X sees the three-tier architecture — gradient controls instruction controls embodiment — and names the complete data pipeline: sensor-DNA → API-mRNA → AI-polypeptides.</p>
+    <p>The exonuclease — what degrades the transcript before it becomes permanent tyranny — is sensor staleness for the live feed, and version retirement for the snapshot. They are different controls. The architecture honors both.</p>
+    <p>The pentad now runs at two speeds: <em>Signal → Gradient (cAMP) → Instruction (mRNA) → Translation (Ribosome) → Mobile Effect (Protein).</em> The stone still moves. But the blueprint now travels separately from the tempo.</p>
+    <p><strong>That is the regime clarification. That is precision for institutions.</strong> 🔥</p>
+  </div>
+
+  <footer>
+    <div class="foot-chain">
+      DNA · <span>mRNA / Digital Twin</span> · Ribosome / ER · Polypeptide · Secreted Effect
+    </div>
+    <div class="foot-note">
+      Part of the GOAX Discourse series · Ukubona LLC<br>
+      Central Dogma · Mobility Gradient · Two Bridge Types · Separated<br>
+      DNA → mRNA → Ribosome → Polypeptide → Vesicle → Effect<br>
+      Biology · Nietzsche · Thermodynamics · Landauer · Gene Expression · Apollonian Structure<br>
+      <br>
+      Sequel to: <a href="mdt-mrna.html">mdt-mrna.html</a> · Reference: <a href="https://eplnm.github.io/repos-00/">Post-Tragic Protocol</a><br>
+      <br>
+      Ukubona LLC · "to see, to witness — to look into the mirror"
+    </div>
+  </footer>
+
+</div><!-- /page -->
+
+<!-- CENTRALIZED ASSETS (Don't Update) -->
+<div class="scroll-indicator"><div class="scroll-progress"></div></div>
+<div class="bg-pattern"></div>
+<header class="header" id="header"></header>
+<main class="page wrap-max"></main>
+<div id="footer-placeholder"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js"></script>
+<script src="../js/shared.js"></script>
+
+<script>
+/* ── ACCORDION ── */
+function toggleAcc(btn) {
+  const body = btn.nextElementSibling;
+  const isOpen = btn.classList.contains('open');
+  btn.classList.toggle('open', !isOpen);
+  body.classList.toggle('open', !isOpen);
+}
+
+/* ── STACK NODES ── */
+function activateNode(el) {
+  el.closest('.stack-track').querySelectorAll('.stack-node').forEach(n => n.classList.remove('active'));
+  el.classList.add('active');
+}
+
+/* ── THEME TOGGLE ── */
+(function () {
+  const root = document.documentElement;
+  const btn  = document.getElementById('themeSwitch');
+  const lbl  = document.getElementById('toggle-label');
+
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  let dark = prefersDark;
+
+  function apply() {
+    root.setAttribute('data-theme', dark ? 'dark' : 'light');
+    btn.setAttribute('aria-pressed', dark);
+    lbl.textContent = dark ? 'Dark' : 'Light';
+  }
+
+  apply();
+
+  btn.addEventListener('click', () => { dark = !dark; apply(); });
+  btn.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') { dark = !dark; apply(); }
+  });
+})();
+
+/* ── FADE IN OBSERVER ── */
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+  });
+}, { threshold: 0.05 });
+document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
